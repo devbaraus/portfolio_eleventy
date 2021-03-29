@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/assets/main.bundle.css">
-  <script src="/assets/main.bundle.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="assets/main.bundle.css">
+  <link rel="stylesheet" type="text/css" href="css/devsymbol/style.css">
+  <link rel="stylesheet" type="text/css" href="css/feather-icons/style.css">
+  <script src="assets/main.bundle.js" defer></script>
   <title>{{ title }} | TEA Stack</title>
+  <meta name='author' content='Bruno de Araújo Alves'>
+  <meta name='robot' content='index, follow'>
+  <link rel='stylesheet'
+        href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Ubuntu:wght@700&display=swap'>
   {% block head %}{% endblock %}
+  <script src='/js/lazysizes.min.js'></script>
 </head>
 <body class="{{ 'debug-screens' if env.devMode }}">
-  {% include 'header.njk' %}
-  {% block body %}
-    <div class="container py-8">
-      {{ content | safe }}
-    </div>
-  {% endblock %}
+{% include 'header.njk' %}
+{% block body %}
+  <div class="layout">
+    {{ content | safe }}
+  </div>
+{% endblock %}
+{#<script src='js/hotjar.js'></script>#}
+{#<script src='https://unpkg.com/@codersrank/activity@0.9.14/codersrank-activity.min.js'></script>#}
 </body>
 </html>

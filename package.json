@@ -16,13 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/mattwaler/tea-stack.git"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "htmlWhitespaceSensitivity": "ignore"
-  },
   "keywords": [
     "eleventy",
     "tailwind",
@@ -49,6 +42,7 @@
     "postcss": "^8.2.1",
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.1.0",
+    "postcss-nested": "^5.0.5",
     "style-loader": "^2.0.0",
     "tailwindcss": "^2.0.2",
     "tailwindcss-debug-screens": "^2.0.0",

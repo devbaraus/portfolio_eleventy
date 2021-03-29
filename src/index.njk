@@ -4,7 +4,132 @@
 {% extends "layout.njk" %}
 
 {% block body %}
-  <main class="container py-8">
-    <h1>This is the {{ title | lower }} page.</h1>
+  <main>
+    <!-- JUMBO -->
+    <div class='relative bg-gray-light '>
+      {# <ul class='circles'> #}
+      {# <li> #}
+      {# <Icon name='docker' :dev='true' class='text-2xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='vuejs' :dev='true' class='text-4xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='figma' :dev='true' class='text-xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='react' :dev='true' class='text-2xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='googlecloud' :dev='true' class='text-xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='html5' :dev='true' class='text-3xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='css3' :dev='true' class='text-xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='javascript' :dev='true' class='text-4xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='github' :dev='true' class='text-4xl' /> #}
+      {# </li> #}
+      {# <li> #}
+      {# <Icon name='dev' :dev='true' class='text-2xl' /> #}
+      {# </li> #}
+      {# </ul> #}
+      <div class='min-h-screen flex w-screen pt-14 justify-between items-center z-10'>
+        <div class='container items-center'>
+          <div class='max-w-3xl 2xl:max-w-full mx-auto break-words'>
+            <div class='pb-24'>
+              <h4 class='font-bold text-xl tracking-tight'>
+                Olá, tudo bem?!
+              </h4>
+              <h2 class='font-ubuntu text-5xl my-2'>
+                Sou
+                <span class='text-primary'>Bruno de Araújo Alves</span>
+              </h2>
+              <h4 class='text-base text-justify'>
+                Tenho 21 anos,
+                estudante de
+                <a target='_blank' href='https://computacaoifg.com.br' rel='noopener' class='text-primary link-dark'>Ciência
+                  da Computação</a>, Diretor de Projetos na empresa júnior <a
+                  href='https://codetower.com.br' target='_blank' rel='noopener' class='text-primary link-dark'>Code
+                  Tower</a>
+                e procuro sempre aprender algo novo.
+                Comecei na computação aos 16 anos e ao longo da minha jornada criei alguns projetos e adquiri um
+                conhecimento
+                que acredito que deve ser compartilhado com outros.
+                <br />
+                Sou <span class='text-primary'>Desenvolvedor Web Full Stack</span>,
+                tenho experiência em NodeJS, VueJS,
+                Python entre outras linguagens e frameworks.
+                Espero que goste!
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Media -->
+    <section class='container social-media-section pt-6 mb-12 relative'>
+      <div
+        class='flex items-center justify-between gap-y-2 gap-x-3 mt-8 flex-wrap'
+      >
+        {% for social in home.socials %}
+          <a href='{{ social.route }}' target='{{ "_blank" if social.external else "_self" }}' rel='nofollow noreferrer'
+             class='bg-dark px-4 py-2 rounded-one hover:rounded-lg text-gray-light mr-2 transition-all duration-200 ease-in cursor-pointer hover:text-primary'>
+            <i class='{{ social.icon }} mr-1'></i> {{ social.name }}
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- CODE TOWER -->
+    <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+      <div class='section-header flex flex-col justify-between items-baseline text-gray-light'>
+        <h5 class='font-ubuntu text-3xl leading-loose relative text-primary'>Code Tower</h5>
+      </div>
+      <div
+        class='flex items-center justify-between gap-2 gap-x-3 mt-8 flex-wrap text-gray-light'
+      >
+        <p>
+          A
+          <a href='https://codetower.com.br/' target='_blank' class='link'
+          >Code Tower</a
+          >
+          é uma empresa sem fins lucrativos, visando fomentar o empreendedorismo
+          no Brasil através de projetos de tecnologia da informação de alta
+          qualidade e custo abaixo do mercado.
+        </p>
+        <p>
+          Todo o valor ganho é revertido para a formação profissional dos nossos
+          membros e alunos do Instituto Federal de Goiás Câmpus Anápolis.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+      <div class='section-header flex flex-col justify-between items-baseline text-gray-light'>
+        <h5 id='skills' class='font-ubuntu text-3xl leading-loose relative text-primary'>Habilidades</h5>
+      </div>
+      <div class='card-grid'>
+        {% for skill in home.skills %}
+          <article class='bg-light pb-4 text-gray-light shadow-lg'>
+            <div class='p-4'>
+              <i title='{{ skill.icon.title }}' class='{{ skill.icon.class }} text-4xl text-primary'></i>
+              <p class='text-xl'>{{ skill.label }}</p>
+            </div>
+            <div>
+              <p class='p-4'>{{ skill.description }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
   </main>
 {% endblock %}

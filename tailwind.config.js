@@ -5,7 +5,25 @@ module.exports = {
       center: true,
       padding: '2rem',
     },
-    extend: {},
+    extend: {
+      borderWidth: {
+        1: '1px',
+      },
+      fontFamily: {
+        ubuntu: 'Ubuntu, sans-serif',
+        consolas: 'Consolas, sans-serif',
+        poppins: 'Poppins, sans-serif',
+      },
+      colors: {
+        dark: 'var(--color-dark)',
+        light: 'var(--color-light)',
+        gray: {
+          // default: '',
+          light: 'var(--color-gray-light)',
+        },
+        primary: 'var(--color-primary)',
+      },
+    },
   },
   variants: {
     extend: {},
@@ -14,9 +32,10 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('tailwindcss-debug-screens'),
   ],
-  purge: [
-    './src/**/*.js',
-    './src/**/*.njk',
-    './src/**/*.svg',
-  ],
+  purge: {
+    content: ['dist/**/*.html'],
+    options: {
+      safelist: [],
+    },
+  },
 }
