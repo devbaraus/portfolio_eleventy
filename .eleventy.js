@@ -1,4 +1,7 @@
 module.exports = (config) => {
+  config.addFilter('log', value => {
+    console.log(value)
+  })
   config.addPassthroughCopy({ 'public': './' })
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],

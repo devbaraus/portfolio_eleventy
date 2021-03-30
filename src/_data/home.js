@@ -39,7 +39,7 @@ module.exports = {
         'Configuração de aplicações back end e front end em ambiente docker',
     },
     {
-      heading: 'Autodidata',
+      label: 'Autodidata',
       icon: { title: 'Book', class: 'icon-book-open' },
       description:
         'Busca de conhecimento utilizando documentação, vídeos e livros',

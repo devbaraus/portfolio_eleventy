@@ -1,6 +1,6 @@
 {# This page is built with nunjucks! #}
 
-{% set title = 'Home' %}
+{% set title = 'Desenvolvedor Web Full Stack' %}
 {% extends "layout.njk" %}
 
 {% block body %}
@@ -125,6 +125,45 @@
             </div>
             <div>
               <p class='p-4'>{{ skill.description }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+      <div class='section-header flex flex-col justify-between items-baseline text-gray-light'>
+        <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Artigos</h5>
+        <a class='self-end' href=''>Ver mais</a>
+      </div>
+      <div class='card-grid'>
+        {# {{ articles | log }} #}
+        {% for article in articles %}
+          <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
+            <div class='relative p-0'>
+              <a class=''>
+                <img
+                  srcset='{{ article.cover.formats.thumbnail.url }} {{ article.cover.formats.thumbnail.height }}h, {{ article.cover.formats.small.url }} {{ article.cover.formats.small.height }}h, {{ article.cover.formats.medium.url }} {{ article.cover.formats.medium.height }}h'
+                  sizes="(max-width: {{ article.cover.formats.thumbnail.height }}px) {{ article.cover.formats.thumbnail.height - 20 }}px, (max-width: {{ article.cover.formats.small.height }}px) {{ article.cover.formats.small.height - 20 }}px, {{ article.cover.formats.medium.height }}px"
+                  src='{{ article.cover.formats.medium.url }}'
+                  class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
+                  alt=''>
+              </a>
+              <a href=''
+                 class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
+                <p>
+                  {{ article.title }}
+                </p>
+              </a>
+            </div>
+            <div class='p-4 w-full h-full'>
+              <p>{{ article.description }}</p>
+            </div>
+            <div class='p-4 flex h-16 items-center'>
+              {% for tag in article.tags %}
+                <i title='{{ tag }}' class='text-xl mr-2 ds-{{ tag }}'></i>
+              {% endfor %}
             </div>
           </article>
         {% endfor %}

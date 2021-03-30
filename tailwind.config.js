@@ -15,13 +15,13 @@ module.exports = {
         poppins: 'Poppins, sans-serif',
       },
       colors: {
-        dark: 'var(--color-dark)',
-        light: 'var(--color-light)',
+        dark: '#31263e',
+        light: '#44355b',
         gray: {
           // default: '',
-          light: 'var(--color-gray-light)',
+          light: '#f0f0f7',
         },
-        primary: 'var(--color-primary)',
+        primary: '#ee5622',
       },
     },
   },
