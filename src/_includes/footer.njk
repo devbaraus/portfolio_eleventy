@@ -1,0 +1,66 @@
+<footer class='bg-gray-light'>
+  <div class='container py-8 flex items-center justify-center gap-4 flex-wrap md:flex-nowrap'>
+    <div class='mb-8 flex items-center justify-center w-full flex-col lg:mb-0'>
+      <p class='text-2xl font-ubuntu my-2'>Entre em contato</p>
+      <a
+        href="mailto:contato@baraus.dev"
+        rel="noopener noreferrer"
+        class="link my-2"
+      >
+        <i class='feather feather-mail'></i>
+        me@baraus.dev
+      </a>
+      <a
+        href="tel:+5562991205888"
+        rel="noopener noreferrer"
+        class="link my-2"
+      >
+        <i class='feather feather-phone'></i>
+        (62) 9 9120-6888
+      </a>
+    </div>
+    <div class='flex items-center justify-center w-full flex-col'>
+      <form method='post'>
+        <div class="grid grid-cols-2 gap-2 mb-2">
+          <label for="name" class='flex'>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              v-model="form.name"
+              placeholder="Nome completo"
+              class='outline-none border-none p-2 shadow w-full'
+            />
+          </label>
+          <label for="email" class='flex'>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              v-model="form.email"
+              placeholder="E-mail"
+              class='outline-none border-none p-2 shadow w-full'
+            />
+          </label>
+          <label for="message" class="col-span-2 ">
+              <textarea
+                name="message"
+                id="message"
+                required
+                cols="30"
+                rows="10"
+                v-model="form.message"
+                placeholder="Mensagem"
+                class='outline-none focus:outline-none p-2 shadow border-none flex h-32 w-full resize-none'
+              ></textarea>
+          </label>
+        </div>
+        <div class="form-flex flex items-center justify-end">
+          <button type="submit" class=' py-2 px-8 h-full bg-dark text-gray-light col-start-2 transition-all duration-200 ease-in hover:bg-primary'>Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</footer>

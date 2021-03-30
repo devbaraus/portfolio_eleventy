@@ -1,5 +1,6 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CSSMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 module.exports = {
   entry: './src/_bundle/main.js',
@@ -8,17 +9,39 @@ module.exports = {
     rules: [
       {
         test: /\.pcss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
+      {
+        test: /\.font\.js/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              url: false
+            }
+          },
+          'webfonts-loader'
+        ]
+      }
+    ],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      // `...`,
+      new CSSMinimizerPlugin(),
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'dist', 'assets'),
-    filename: 'main.bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/main.js',
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'main.bundle.css'
+      filename: 'css/main.css',
     }),
   ],
+
 }

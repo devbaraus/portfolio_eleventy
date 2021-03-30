@@ -1,7 +1,6 @@
+const htmlmin = require('html-minifier')
+
 module.exports = (config) => {
-  config.addFilter('log', value => {
-    console.log(value)
-  })
   config.addPassthroughCopy({ 'public': './' })
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],
@@ -10,13 +9,29 @@ module.exports = (config) => {
     snippetOptions: {
       rule: {
         match: /<\/head>/i,
-        fn: function (snippet, match) {
-          return snippet + match;
-        }
-      }
-    }
+        fn: function(snippet, match) {
+          return snippet + match
+        },
+      },
+    },
   })
   config.setDataDeepMerge(true)
+  config.addTransform('htmlmin', function(content, outputPath) {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      outputPath &&
+      outputPath.endsWith('.html')
+    ) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+      })
+      return minified
+    }
+
+    return content
+  })
 
   return {
     dir: {

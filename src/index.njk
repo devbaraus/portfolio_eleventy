@@ -145,7 +145,6 @@
               <a class=''>
                 <img
                     srcset='{{ article.cover.formats.medium.url }} {{ article.cover.formats.medium.width }}w,  {{ article.cover.formats.small.url }} {{ article.cover.formats.small.width }}w, {{ article.cover.formats.thumbnail.url }} {{ article.cover.formats.thumbnail.width }}w'
-{#                    sizes="(max-width: {{ article.cover.formats.thumbnail.width }}px) {{ article.cover.formats.thumbnail.width - 20 }}px, (max-height: {{ article.cover.formats.small.width }}px) {{ article.cover.formats.small.width - 20 }}px, {{ article.cover.formats.medium.width }}px"#}
                     src='{{ article.cover.url }}'
                     loading='lazy'
                     class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
@@ -163,7 +162,7 @@
             </div>
             <div class='p-4 flex h-16 items-center'>
               {% for tag in article.tags %}
-                <i title='{{ tag }}' class='text-xl mr-2 ds-{{ tag }}'></i>
+                <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
               {% endfor %}
             </div>
           </article>
