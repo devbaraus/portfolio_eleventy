@@ -2,6 +2,9 @@
   "name": "tea-stack",
   "version": "1.0.0",
   "description": "A starter template for the TEA stack.",
+  "engines": {
+    "node": ">=12.19.0"
+  },
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production npm-run-all clean -p build:*",
