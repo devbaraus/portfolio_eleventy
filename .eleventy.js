@@ -1,6 +1,11 @@
 const htmlmin = require('html-minifier')
+const markdown = require('./src/_filters/markdown')
 
 module.exports = (config) => {
+  config.addFilter('markdown', value => {
+    return markdown.makeHtml(value)
+  })
+
   config.addPassthroughCopy({ 'public': './' })
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],

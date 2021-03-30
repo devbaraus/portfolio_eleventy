@@ -55,7 +55,7 @@
                 estudante de
                 <a target='_blank' href='https://computacaoifg.com.br' rel='noopener' class='text-primary link-dark'>Ciência
                   da Computação</a>, Diretor de Projetos na empresa júnior <a
-                    href='https://codetower.com.br' target='_blank' rel='noopener' class='text-primary link-dark'>Code
+                  href='https://codetower.com.br' target='_blank' rel='noopener' class='text-primary link-dark'>Code
                   Tower</a>
                 e procuro sempre aprender algo novo.
                 Comecei na computação aos 16 anos e ao longo da minha jornada criei alguns projetos e adquiri um
@@ -76,7 +76,7 @@
     <!-- Social Media -->
     <section class='container social-media-section pt-6 mb-12 relative'>
       <div
-          class='flex items-center justify-between gap-y-2 gap-x-3 mt-8 flex-wrap'
+        class='flex items-center justify-between gap-y-2 gap-x-3 mt-8 flex-wrap'
       >
         {% for social in home.socials %}
           <a href='{{ social.route }}' target='{{ "_blank" if social.external else "_self" }}' rel='nofollow noreferrer'
@@ -93,7 +93,7 @@
         <h5 class='font-ubuntu text-3xl leading-loose relative text-primary'>Code Tower</h5>
       </div>
       <div
-          class='flex items-center justify-between gap-2 gap-x-3 mt-8 flex-wrap text-gray-light'
+        class='flex items-center justify-between gap-2 gap-x-3 mt-8 flex-wrap text-gray-light'
       >
         <p>
           A
@@ -113,7 +113,7 @@
 
     <!-- SKILLS -->
     <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-      <div class='section-header flex flex-col justify-between items-baseline text-gray-light'>
+      <div class='section-header flex flex-row justify-between items-center text-gray-light'>
         <h5 id='skills' class='font-ubuntu text-3xl leading-loose relative text-primary'>Habilidades</h5>
       </div>
       <div class='card-grid'>
@@ -133,9 +133,9 @@
 
     <!-- ARTICLES -->
     <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-      <div class='section-header flex flex-col justify-between items-baseline text-gray-light'>
+      <div class='section-header flex flex-row justify-between items-center text-gray-light'>
         <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Artigos</h5>
-        <a class='self-end' href=''>Ver mais</a>
+        <a href=''>Ver mais</a>
       </div>
       <div class='card-grid'>
         {# {{ articles | log }} #}
@@ -144,11 +144,11 @@
             <div class='relative p-0'>
               <a class=''>
                 <img
-                    srcset='{{ article.cover.formats.medium.url }} {{ article.cover.formats.medium.width }}w,  {{ article.cover.formats.small.url }} {{ article.cover.formats.small.width }}w, {{ article.cover.formats.thumbnail.url }} {{ article.cover.formats.thumbnail.width }}w'
-                    src='{{ article.cover.url }}'
-                    loading='lazy'
-                    class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
-                    alt=''>
+                  srcset='{{ article.cover.formats.medium.url }} {{ article.cover.formats.medium.width }}w,  {{ article.cover.formats.small.url }} {{ article.cover.formats.small.width }}w, {{ article.cover.formats.thumbnail.url }} {{ article.cover.formats.thumbnail.width }}w'
+                  src='{{ article.cover.url }}'
+                  loading='lazy'
+                  class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
+                  alt=''>
               </a>
               <a href=''
                  class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
@@ -158,10 +158,113 @@
               </a>
             </div>
             <div class='p-4 w-full h-full'>
-              <p>{{ article.description }}</p>
+              {{ article.description | markdown | safe }}
             </div>
             <div class='p-4 flex h-16 items-center'>
               {% for tag in article.tags %}
+                <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
+              {% endfor %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+      <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+        <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Projetos</h5>
+        <a href=''>Ver mais</a>
+      </div>
+      <div class='card-grid'>
+        {# {{ articles | log }} #}
+        {% for project in projects %}
+          <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
+            <div class='relative p-0'>
+              <a class=''>
+                <img
+                  srcset='{{ project.cover.formats.medium.url }} {{ project.cover.formats.medium.width }}w,  {{ project.cover.formats.small.url }} {{ project.cover.formats.small.width }}w, {{ project.cover.formats.thumbnail.url }} {{ project.cover.formats.thumbnail.width }}w'
+                  src='{{ project.cover.url }}'
+                  loading='lazy'
+                  class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
+                  alt=''>
+              </a>
+              <a href=''
+                 class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
+                <p>
+                  {{ project.title }}
+                </p>
+              </a>
+            </div>
+            <div class='p-4 flex h-16 items-center'>
+              {% for tag in project.tags %}
+                <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
+              {% endfor %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- SIDES -->
+    <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+      <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+        <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Projetos Pessoais</h5>
+        <a href=''>Ver mais</a>
+      </div>
+      <div class='card-grid'>
+        {# {{ articles | log }} #}
+        {% for side in sides %}
+          <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
+            <div class='relative p-0'>
+              <a class=''>
+                <img
+                  srcset='{{ side.cover.formats.medium.url }} {{ side.cover.formats.medium.width }}w,  {{ side.cover.formats.small.url }} {{ side.cover.formats.small.width }}w, {{ side.cover.formats.thumbnail.url }} {{ side.cover.formats.thumbnail.width }}w'
+                  src='{{ side.cover.url }}'
+                  loading='lazy'
+                  class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
+                  alt=''>
+              </a>
+              <a href=''
+                 class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
+                <p>
+                  {{ side.title }}
+                </p>
+              </a>
+            </div>
+            <div class='p-4 flex h-16 items-center'>
+              {% for tag in side.tags %}
+                <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
+              {% endfor %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- REPOS -->
+    <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+      <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+        <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Repositorios</h5>
+        <a href=''>Ver mais</a>
+      </div>
+      <div class='card-grid'>
+        {# {{ articles | log }} #}
+        {% for repo in repos %}
+          <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
+            <div class='relative p-0'>
+              <a href=''
+                 class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
+                <p>
+                  {{ repo.name }}
+                </p>
+              </a>
+            </div>
+            <div class='p-4 w-full h-full'>
+              {{ repo.description | markdown | safe }}
+            </div>
+            <div class='p-4 flex h-16 items-center'>
+              {% for tag in repo.tags %}
                 <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
               {% endfor %}
             </div>
