@@ -14,6 +14,7 @@ async function fetchData() {
               name
             }
             cover {
+              url
               formats
             }
           }

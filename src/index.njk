@@ -55,7 +55,7 @@
                 estudante de
                 <a target='_blank' href='https://computacaoifg.com.br' rel='noopener' class='text-primary link-dark'>Ciência
                   da Computação</a>, Diretor de Projetos na empresa júnior <a
-                  href='https://codetower.com.br' target='_blank' rel='noopener' class='text-primary link-dark'>Code
+                    href='https://codetower.com.br' target='_blank' rel='noopener' class='text-primary link-dark'>Code
                   Tower</a>
                 e procuro sempre aprender algo novo.
                 Comecei na computação aos 16 anos e ao longo da minha jornada criei alguns projetos e adquiri um
@@ -76,7 +76,7 @@
     <!-- Social Media -->
     <section class='container social-media-section pt-6 mb-12 relative'>
       <div
-        class='flex items-center justify-between gap-y-2 gap-x-3 mt-8 flex-wrap'
+          class='flex items-center justify-between gap-y-2 gap-x-3 mt-8 flex-wrap'
       >
         {% for social in home.socials %}
           <a href='{{ social.route }}' target='{{ "_blank" if social.external else "_self" }}' rel='nofollow noreferrer'
@@ -93,7 +93,7 @@
         <h5 class='font-ubuntu text-3xl leading-loose relative text-primary'>Code Tower</h5>
       </div>
       <div
-        class='flex items-center justify-between gap-2 gap-x-3 mt-8 flex-wrap text-gray-light'
+          class='flex items-center justify-between gap-2 gap-x-3 mt-8 flex-wrap text-gray-light'
       >
         <p>
           A
@@ -144,11 +144,12 @@
             <div class='relative p-0'>
               <a class=''>
                 <img
-                  srcset='{{ article.cover.formats.thumbnail.url }} {{ article.cover.formats.thumbnail.height }}h, {{ article.cover.formats.small.url }} {{ article.cover.formats.small.height }}h, {{ article.cover.formats.medium.url }} {{ article.cover.formats.medium.height }}h'
-                  sizes="(max-width: {{ article.cover.formats.thumbnail.height }}px) {{ article.cover.formats.thumbnail.height - 20 }}px, (max-width: {{ article.cover.formats.small.height }}px) {{ article.cover.formats.small.height - 20 }}px, {{ article.cover.formats.medium.height }}px"
-                  src='{{ article.cover.formats.medium.url }}'
-                  class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
-                  alt=''>
+                    srcset='{{ article.cover.formats.medium.url }} {{ article.cover.formats.medium.width }}w,  {{ article.cover.formats.small.url }} {{ article.cover.formats.small.width }}w, {{ article.cover.formats.thumbnail.url }} {{ article.cover.formats.thumbnail.width }}w'
+{#                    sizes="(max-width: {{ article.cover.formats.thumbnail.width }}px) {{ article.cover.formats.thumbnail.width - 20 }}px, (max-height: {{ article.cover.formats.small.width }}px) {{ article.cover.formats.small.width - 20 }}px, {{ article.cover.formats.medium.width }}px"#}
+                    src='{{ article.cover.url }}'
+                    loading='lazy'
+                    class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
+                    alt=''>
               </a>
               <a href=''
                  class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
