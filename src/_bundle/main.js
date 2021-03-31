@@ -4,7 +4,6 @@ import './devicons.font.js'
 import './feather.font.js'
 
 // JS
-// import 'alpinejs'
 import 'turbolinks'
 import Turbolinks from 'turbolinks'
 

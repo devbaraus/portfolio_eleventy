@@ -18,7 +18,6 @@ module.exports = {
         dark: "#31263e",
         light: "#44355b",
         gray: {
-          // default: '',
           light: "#f0f0f7",
         },
         primary: "#ee5622",
@@ -28,11 +27,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/typography"),
-    require("tailwindcss-debug-screens"),
-  ],
+  plugins: [require("@tailwindcss/typography")],
   purge: {
     content: ["dist/**/*.html"],
     options: {
