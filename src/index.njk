@@ -253,7 +253,7 @@
         {% for repo in repos %}
           <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
             <div class='relative p-0'>
-              <a href=''
+              <a href='/repos/{{ repo.name | slug }}/'
                  class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
                 <p>
                   {{ repo.name }}

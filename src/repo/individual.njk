@@ -1,0 +1,93 @@
+---
+formatteroff: true
+pagination:
+  data: repos
+  size: 1
+  alias: repo
+permalink: "repos/{{ repo.name | slug }}/"
+formatteron: true
+---
+{% set title = repo.name %}
+{% extends "layout.njk" %}
+
+{% block body %}
+  <div class='bg-gray-light'>
+    <div class='container text-dark pb-8 pt-12'>
+      <div class='md:flex justify-between items-baseline py-4'>
+        <div>
+          <h2 class='text-3xl md:text-4xl font-bold break-all'>{{ repo.name }}</h2>
+          {{ repo.description | markdown | safe }}
+          <div class='mt-4 flex items-center'>
+          <span class='article-reactions' title='{{ repo.stargazers_count }} pessoas curtiram este repositório'>
+            <i class='feather feather-star'></i> {{ repo.stargazers_count }}
+          </span>
+            {% if repo.tags.length > 0 %}
+              <span class="opacity-50 text-primary mx-2">|</span>
+            {% endif %}
+            {% for tag in repo.tags %}
+              <i
+                class="text-2xl devicons ds-{{ tag }} mr-2"
+              ></i>
+            {% endfor %}
+          </div>
+        </div>
+        <div
+          class="mt-8 md:mt-0 block"
+        >
+          <a href='{{ repo.url }}' target='_blank' rel='nofollow'
+             class='bg-dark px-4 py-2 text-gray-light hover:text-primary'>
+            Acessar repositório
+          </a>
+        </div>
+      </div>
+      <div class='prose max-w-none mt-8'>
+        {{ repo.readme | markdown | safe }}
+      </div>
+    </div>
+  </div>
+  <!-- REPOS -->
+  <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+    <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+      <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Sugestões</h5>
+    </div>
+    <div class='card-grid grid-suggestions'>
+      {# {{ articles | log }} #}
+      {% macro suggestion(sug) %}
+        <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
+          <div class='relative p-0'>
+            <a href='/repos/{{ sug.name | slug }}/'
+               class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
+              <p>
+                {{ sug.name }}
+              </p>
+            </a>
+          </div>
+          <div class='p-4 w-full h-full'>
+            {{ sug.description | markdown | safe }}
+          </div>
+          <div class='p-4 flex h-16 items-center'>
+            {% for tag in sug.tags %}
+              <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
+            {% endfor %}
+          </div>
+        </article>
+      {% endmacro %}
+
+      {{ suggestion(repo.suggestions[0]) }}
+
+      <div
+        class="flex justify-center flex-col items-center text-gray-light text-center px-4 h-full"
+      >
+        <h6 class="text-2xl mb-8">Veja meus outros repositórios</h6>
+        <a href='/repos/' target='_blank' rel='nofollow'
+           class='bg-dark px-4 py-2 text-gray-light hover:text-primary text-xl border-1 border-gray-light hover:border-primary'>
+          <i class='feather feather-compass mr-2'></i> Ver mais
+        </a>
+      </div>
+
+      {{ suggestion(repo.suggestions[1]) }}
+    </div>
+  </section>
+{% endblock %}
+
+

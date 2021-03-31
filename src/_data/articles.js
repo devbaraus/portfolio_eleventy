@@ -4,7 +4,7 @@ async function fetchData() {
   try {
     let articles = await client.request(gql`
         query {
-          articles(limit: 6, sort: "published_at ASC") {
+          articles(sort: "published_at ASC") {
             _id,
             title,
             url,

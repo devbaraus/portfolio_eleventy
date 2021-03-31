@@ -3,25 +3,25 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: "2rem",
     },
     extend: {
       borderWidth: {
-        1: '1px',
+        1: "1px",
       },
       fontFamily: {
-        ubuntu: 'Ubuntu, sans-serif',
-        consolas: 'Consolas, sans-serif',
-        poppins: 'Poppins, sans-serif',
+        ubuntu: "Ubuntu, sans-serif",
+        consolas: "Consolas, sans-serif",
+        poppins: "Poppins, sans-serif",
       },
       colors: {
-        dark: '#31263e',
-        light: '#44355b',
+        dark: "#31263e",
+        light: "#44355b",
         gray: {
           // default: '',
-          light: '#f0f0f7',
+          light: "#f0f0f7",
         },
-        primary: '#ee5622',
+        primary: "#ee5622",
       },
     },
   },
@@ -29,13 +29,14 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('tailwindcss-debug-screens'),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("tailwindcss-debug-screens"),
   ],
   purge: {
-    content: ['dist/**/*.html'],
+    content: ["dist/**/*.html"],
     options: {
       safelist: [],
     },
   },
-}
+};
