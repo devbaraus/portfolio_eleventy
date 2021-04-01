@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
-  <script src="/js/main.js" defer></script>
   <title>{{ title }} | DevBaraus</title>
   <meta name='author' content='Bruno de Araújo Alves'>
   <meta name='robot' content='index, follow'>
@@ -12,7 +11,7 @@
   <link rel='stylesheet'
         href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@700&display=swap'>
   {% block head %}{% endblock %}
-  <script src='/js/lazysizes.min.js'></script>
+  <script src="/js/main.js" defer></script>
 </head>
 <body class="{{ 'debug-screens' if env.devMode }}">
 {% include 'header.njk' %}
@@ -20,6 +19,11 @@
   {{ content | safe }}
 {% endblock %}
 {% include 'footer.njk' %}
-
+<div
+  id="copy-message"
+  style='left: calc(50vw - 6rem);'
+  class="fixed flex h-16 w-48 -top-24 justify-center items-center cursor-pointer transition-all duration-200 ease-in bg-dark z-50 rounded-b"
+>
+</div>
 </body>
 </html>

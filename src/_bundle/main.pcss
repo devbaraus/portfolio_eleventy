@@ -162,6 +162,13 @@ i.devicons {
   height: fit-content;
 }
 
+pre {
+  @apply cursor-pointer;
+  &:hover code {
+    @apply opacity-75 transition-all duration-200 ease-in;
+  }
+}
+
 pre.language-yml,
 pre.language-yaml,
 pre.language-bash,
