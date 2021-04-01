@@ -58,7 +58,7 @@
     "postcss-nested": "^5.0.5",
     "prettier": "^2.2.1",
     "showdown": "^1.9.1",
-    "showdown-highlight": "^2.1.6",
+    "showdown-highlight-pre": "^2.1.5",
     "style-loader": "^2.0.0",
     "tailwindcss": "^2.0.2",
     "webpack": "^5.11.0",

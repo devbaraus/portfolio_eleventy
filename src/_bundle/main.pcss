@@ -161,3 +161,109 @@ i.devicons {
   width: fit-content;
   height: fit-content;
 }
+
+pre.language-yml,
+pre.language-yaml,
+pre.language-bash,
+pre.language-sh,
+pre.language-css,
+pre.language-html,
+pre.language-js,
+pre.language-javascript,
+pre.language-ts,
+pre.language-typescript,
+pre.language-md,
+pre.language-markdown,
+pre.language-php,
+pre.language-kotlin,
+pre.language-kt,
+pre.language-python,
+pre.language-py {
+  @apply relative pt-8 rounded;
+}
+
+pre.language-yml:after,
+pre.language-yaml:after,
+pre.language-bash:after,
+pre.language-sh:after,
+pre.language-css:after,
+pre.language-html:after,
+pre.language-js:after,
+pre.language-javascript:after,
+pre.language-ts:after,
+pre.language-typescript:after,
+pre.language-md:after,
+pre.language-markdown:after,
+pre.language-php:after,
+pre.language-kotlin:after,
+pre.language-kt:after,
+pre.language-python:after,
+pre.language-py:after {
+  @apply p-1 absolute bg-primary overflow-hidden text-gray-light left-8 -top-px;
+  z-index: 1;
+}
+
+pre.language-yml:before,
+pre.language-yaml:before,
+pre.language-bash:before,
+pre.language-sh:before,
+pre.language-css:before,
+pre.language-html:before,
+pre.language-js:before,
+pre.language-javascript:before,
+pre.language-ts:before,
+pre.language-typescript:before,
+pre.language-md:before,
+pre.language-markdown:before,
+pre.language-php:before,
+pre.language-kotlin:before,
+pre.language-kt:before,
+pre.language-python:before,
+pre.language-py:before {
+  @apply p-1 absolute bg-primary overflow-hidden text-gray-light right-8 -top-px;
+  z-index: 1;
+  font-family: 'feather';
+  content: '\f10f';
+}
+
+pre.language-css:after {
+  content: 'css';
+}
+
+pre.language-yaml:after,
+pre.language-yml:after {
+  content: 'yaml';
+}
+
+pre.language-js:after,
+pre.language-javascript:after {
+  content: 'javascript';
+}
+
+pre.language-ts:after,
+pre.language-typescript:after {
+  content: 'typescript';
+}
+
+pre.language-markdown:after,
+pre.language-md:after {
+  content: 'markdown';
+}
+
+pre.language-html:after {
+  content: 'html';
+}
+
+pre.language-py:after,
+pre.language-python:after {
+  content: 'python';
+}
+
+pre.language-php:after {
+  content: 'php';
+}
+
+pre.language-bash:after,
+pre.language-sh:after {
+  content: 'bash';
+}

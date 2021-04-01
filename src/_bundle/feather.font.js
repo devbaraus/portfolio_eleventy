@@ -14,6 +14,7 @@ module.exports = {
 		'users',
 		'git-commit',
 		'edit-3',
+		'clipboard',
 	].map((i) => `./feather/${i}.svg`),
 	fontName: 'feather',
 	classPrefix: 'feather-',

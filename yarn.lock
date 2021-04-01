@@ -2332,10 +2332,15 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-highlight.js@^10.5.0, highlight.js@^10.7.1:
+highlight.js@^10.7.1:
   version "10.7.1"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.7.1.tgz#a8ec4152db24ea630c90927d6cae2a45f8ecb955"
   integrity sha512-S6G97tHGqJ/U8DsXcEdnACbirtbx58Bx9CzIVeYli8OuswCfYI/LsXH2EiGcoGio1KAC3x4mmUwulOllJ2ZyRA==
+
+highlight.js@^9.18.1:
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  integrity sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
 
 highlightjs@^9.16.2:
   version "9.16.2"
@@ -2362,7 +2367,7 @@ html-comment-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/html-comment-regex/-/html-comment-regex-1.1.2.tgz#97d4688aeb5c81886a364faa0cad1dda14d433a7"
   integrity sha512-P+M65QY2JQ5Y0G9KKdlDpo0zK+/OHptU5AaBwUfAIDJZk1MYf32Frm84EcOytfJE0t5JvkAnKlmjsXDnWzCJmQ==
 
-html-encoder-decoder@^1.3.9:
+html-encoder-decoder@^1.3.8:
   version "1.3.9"
   resolved "https://registry.yarnpkg.com/html-encoder-decoder/-/html-encoder-decoder-1.3.9.tgz#d5ec7d249cd525709f7640ae9340f482cc86e94a"
   integrity sha512-dHv7bdOTEE69EIxXsM8Vslt+NW7QfEB5EGOC29BR14c7RQ9iHUgK76k3/aS23xNIwDg/xlZLWCSZ8lxol9bYlQ==
@@ -4804,13 +4809,13 @@ shell-quote@^1.6.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
-showdown-highlight@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/showdown-highlight/-/showdown-highlight-2.1.6.tgz#2b003cae52a0e28bd7288e63f91055437973ea14"
-  integrity sha512-ILxKwpaFwOwmYVlnYPe48ZitelNGF0OWWao3Ixlm3mM+Lu/S3ZuBujV8ODErGKfgGXBK6mV7tmK5wwu4dmde/w==
+showdown-highlight-pre@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/showdown-highlight-pre/-/showdown-highlight-pre-2.1.5.tgz#0b6c267488c8984d41a4707fa8319a48b18e1af4"
+  integrity sha512-kObX4B0+4MdxEW+7pHBKdEhEZEOqlTxLqDfiVLNm/uhnY9S7xSbP2zAKQHCxNxJ4hzJHSj3qlTzRg+ZnRbbjMQ==
   dependencies:
-    highlight.js "^10.5.0"
-    html-encoder-decoder "^1.3.9"
+    highlight.js "^9.18.1"
+    html-encoder-decoder "^1.3.8"
     showdown "^1.9.1"
 
 showdown@^1.9.1:

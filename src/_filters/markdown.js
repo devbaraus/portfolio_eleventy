@@ -1,5 +1,5 @@
 const showdown = require('showdown')
-const showdownHighlight = require('showdown-highlight')
+const showdownHighlight = require('showdown-highlight-pre')
 
 const markdown = new showdown.Converter({
 	omitExtraWLInCodeBlocks: true,
@@ -15,7 +15,7 @@ const markdown = new showdown.Converter({
 	openLinksInNewWindow: true,
 	emoji: true,
 	literalMidWordUnderscores: true,
-	extensions: [showdownHighlight()],
+	extensions: [showdownHighlight({ pre: true })],
 })
 
 module.exports = markdown

@@ -28,6 +28,7 @@ module.exports = {
 						color: theme('colors.dark'),
 						a: {
 							color: 'inherit',
+							overflowWrap: 'break-word',
 							'&:hover': {
 								color: theme('colors.primary'),
 								transitionProperty: theme('transitionProperty.colors'),
