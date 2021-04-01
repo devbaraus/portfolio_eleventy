@@ -2,6 +2,7 @@
 
 {% set title = 'Desenvolvedor Web Full Stack' %}
 {% extends "layout.njk" %}
+{% import 'macros.njk' as macro %}
 
 {% block body %}
   <main>
@@ -138,106 +139,8 @@
         <a href=''>Ver mais</a>
       </div>
       <div class='card-grid'>
-        {# {{ articles | log }} #}
         {% for article in articles %}
-          <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
-            <div class='relative p-0'>
-              <a href='/articles/{{ article.title | slug }}'>
-                <img
-                  srcset='{{ article.cover.formats.medium.url }} {{ article.cover.formats.medium.width }}w,  {{ article.cover.formats.small.url }} {{ article.cover.formats.small.width }}w, {{ article.cover.formats.thumbnail.url }} {{ article.cover.formats.thumbnail.width }}w'
-                  src='{{ article.cover.url }}'
-                  loading='lazy'
-                  class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
-                  alt=''>
-              </a>
-              <a href='/articles/{{ article.title | slug }}'
-                 class='p-4 w-full flex justify-between bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
-                <p>
-                  {{ article.title }}
-                </p>
-              </a>
-            </div>
-            <div class='p-4 w-full h-full'>
-              {{ article.description | markdown | safe }}
-            </div>
-            <div class='p-4 flex h-16 items-center'>
-              {% for tag in article.tags %}
-                <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
-              {% endfor %}
-            </div>
-          </article>
-        {% endfor %}
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-      <div class='section-header flex flex-row justify-between items-center text-gray-light'>
-        <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Projetos</h5>
-        <a href=''>Ver mais</a>
-      </div>
-      <div class='card-grid'>
-        {# {{ articles | log }} #}
-        {% for project in projects %}
-          <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
-            <div class='relative p-0'>
-              <a class=''>
-                <img
-                  srcset='{{ project.cover.formats.medium.url }} {{ project.cover.formats.medium.width }}w,  {{ project.cover.formats.small.url }} {{ project.cover.formats.small.width }}w, {{ project.cover.formats.thumbnail.url }} {{ project.cover.formats.thumbnail.width }}w'
-                  src='{{ project.cover.url }}'
-                  loading='lazy'
-                  class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
-                  alt=''>
-              </a>
-              <a href=''
-                 class='p-4 w-full flex justify-between bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
-                <p>
-                  {{ project.title }}
-                </p>
-              </a>
-            </div>
-            <div class='p-4 flex h-16 items-center'>
-              {% for tag in project.tags %}
-                <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
-              {% endfor %}
-            </div>
-          </article>
-        {% endfor %}
-      </div>
-    </section>
-
-    <!-- SIDES -->
-    <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-      <div class='section-header flex flex-row justify-between items-center text-gray-light'>
-        <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Projetos Pessoais</h5>
-        <a href=''>Ver mais</a>
-      </div>
-      <div class='card-grid'>
-        {# {{ articles | log }} #}
-        {% for side in sides %}
-          <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
-            <div class='relative p-0'>
-              <a class=''>
-                <img
-                  srcset='{{ side.cover.formats.medium.url }} {{ side.cover.formats.medium.width }}w,  {{ side.cover.formats.small.url }} {{ side.cover.formats.small.width }}w, {{ side.cover.formats.thumbnail.url }} {{ side.cover.formats.thumbnail.width }}w'
-                  src='{{ side.cover.url }}'
-                  loading='lazy'
-                  class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
-                  alt=''>
-              </a>
-              <a href=''
-                 class='p-4 w-full flex justify-between bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
-                <p>
-                  {{ side.title }}
-                </p>
-              </a>
-            </div>
-            <div class='p-4 flex h-16 items-center'>
-              {% for tag in side.tags %}
-                <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
-              {% endfor %}
-            </div>
-          </article>
+          {{ macro.card(article, 'article', '/articles/') }}
         {% endfor %}
       </div>
     </section>
@@ -249,26 +152,8 @@
         <a href=''>Ver mais</a>
       </div>
       <div class='card-grid'>
-        {# {{ articles | log }} #}
         {% for repo in repos.slice(0,6) %}
-          <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
-            <div class='relative p-0'>
-              <a href='/repos/{{ repo.name | slug }}/'
-                 class='p-4 w-full flex justify-between bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
-                <p>
-                  {{ repo.name }}
-                </p>
-              </a>
-            </div>
-            <div class='p-4 w-full h-full'>
-              {{ repo.description | markdown | safe }}
-            </div>
-            <div class='p-4 flex h-16 items-center'>
-              {% for tag in repo.tags %}
-                <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
-              {% endfor %}
-            </div>
-          </article>
+          {{ macro.card(repo, 'repo', '/repos/') }}
         {% endfor %}
       </div>
     </section>

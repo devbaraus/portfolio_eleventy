@@ -1,8 +1,8 @@
 const { client, gql } = require('../../graphql')
 const _ = require('lodash')
 
-function makeSuggestion(repos, name) {
-	const filter = repos.filter((item) => item.name !== name)
+function makeSuggestion(repos, title) {
+	const filter = repos.filter((item) => item.title !== title)
 
 	const shuffle = _.shuffle(filter).slice(0, 2)
 
@@ -15,14 +15,14 @@ async function fetchData() {
 			query {
 				repositories(where: { private: false }) {
 					id
-					name
+					title: name
 					description
 					homepage
 					stargazers_count
 					slug
 					size
 					url
-					readme
+					content: readme
 					tags {
 						name
 					}
@@ -40,7 +40,7 @@ async function fetchData() {
 		repos = repos.map((i) => {
 			return {
 				...i,
-				suggestions: makeSuggestion(repos, i.name),
+				suggestions: makeSuggestion(repos, i.title),
 			}
 		})
 
