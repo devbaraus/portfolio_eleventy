@@ -1,0 +1,141 @@
+---
+formatteroff: true
+pagination:
+  data: articles
+  size: 1
+  alias: article
+permalink: "articles/{{ article.title | slug }}/"
+formatteron: true
+---
+{% set title = article.title %}
+{% extends "layout.njk" %}
+
+{% block body %}
+  <div class='bg-gray-light pt-12'>
+    <div id='article-banner' class='bg-dark h-64'>
+      <div class='container-fluid flex items-center justify-center h-full'>
+        <img
+          srcset='{{ article.cover.formats.medium.url }} {{ article.cover.formats.medium.width }}w,  {{ article.cover.formats.small.url }} {{ article.cover.formats.small.width }}w, {{ article.cover.formats.thumbnail.url }} {{ article.cover.formats.thumbnail.width }}w'
+          src='{{ article.cover.url }}' class='object-cover h-full' alt=''>
+      </div>
+    </div>
+    <div class='container text-dark pb-8 '>
+      <div class='md:flex justify-between items-baseline mt-8'>
+        <div class='mr-4'>
+          <h2 class='text-3xl md:text-4xl font-bold break-all'>{{ article.title }}</h2>
+          <span class='break-all'>
+            {{ article.description | markdown | safe }}
+          </span>
+          <div class='mt-4 flex items-center'>
+          <span title='{{ article.reactions }} pessoas curtiram este post'>
+            <i class='feather feather-star'></i> {{ article.reactions }}
+          </span>
+            <span class="opacity-50 text-primary mx-2">|</span>
+            <span
+              title='Aproximadamente {{ article.time }} minutos de leitura'>
+            <i class='feather feather-book-open'></i>&nbsp;{{ article.time }}&nbsp;min
+          </span>
+            {% if article.tags.length > 0 %}
+              <span class="opacity-50 text-primary mx-2">|</span>
+            {% endif %}
+            {% for tag in article.tags %}
+              <i
+                class="text-2xl devicons ds-{{ tag }} mr-2"
+              ></i>
+            {% endfor %}
+          </div>
+        </div>
+        <div
+          class="mt-8 md:mt-0 block"
+        >
+          <a href='{{ article.url }}' target='_blank' rel='nofollow'
+             class='bg-dark px-4 py-2 text-gray-light hover:text-primary'>
+            Acessar artigo
+          </a>
+        </div>
+      </div>
+      <div class='flex w-full flex-wrap md:flex-nowrap mt-8'>
+        <div class='md:w-8/12 2xl:w-9/12 prose max-w-none'>
+          {{ article.content | markdown | safe }}
+        </div>
+        <div class='mt-8 md:m-0 md:w-4/12 2xl:w-3/12 sticky h-full flex top-24 flex flex-col relative md:pl-4'>
+          <a href='{{ profiles.dev.url }}' class='absolute top-0 right-0 hover:text-primary transition-colors ease-in duration-200'>
+            <small class='text-xs font-thin'>
+              <i class='devicons ds-devto text-xl'></i>
+            </small>
+          </a>
+          <img src='{{ profiles.dev.avatar }}' alt='' class='rounded-full h-56 w-56 ring-dark shadow mb-2 mx-auto'>
+          <a href='{{ profiles.dev.url }}' class='font-semibold text-lg hover:text-primary transition-colors ease-in duration-200'>{{ profiles.dev.name }}</a>
+          <a href='{{ profiles.dev.url }}' class='hover:text-primary transition-colors ease-in duration-200'><small class='font-thin text-sm'>{{ profiles.dev.username }}</small></a>
+          <hr class='border-dark border-opacity-10 my-4 px-4'>
+          <p class='text-base bold'>{{ profiles.dev.bio }}</p>
+          <p><small class='text-sm font-thin'><a href='{{ profiles.dev.url }}' class='hover:text-primary transition-colors ease-in duration-200'><i
+                  class='feather feather-star mr-2'></i>{{ profiles.dev.reactions }}&nbsp;reações</a>
+            </small>
+          </p>
+          <p><a href='{{ profiles.dev.url }}' class='hover:text-primary transition-colors ease-in duration-200'>
+              <small class='text-sm font-thin'>
+                <i class='feather feather-edit-3 mr-2'></i>
+                {{ profiles.dev.articles }}&nbsp;artigos publicados
+              </small>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUGGESTIONS -->
+  <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+    <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+      <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Sugestões</h5>
+    </div>
+    <div class='card-grid grid-suggestions'>
+      {# {{ articles | log }} #}
+      {% macro suggestion(sug) %}
+        <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
+          <div class='relative p-0'>
+            <a href='/articles/{{ sug.title | slug }}'>
+              <img
+                srcset='{{ sug.cover.formats.medium.url }} {{ sug.cover.formats.medium.width }}w,  {{ sug.cover.formats.small.url }} {{ sug.cover.formats.small.width }}w, {{ sug.cover.formats.thumbnail.url }} {{ sug.cover.formats.thumbnail.width }}w'
+                src='{{ sug.cover.url }}'
+                loading='lazy'
+                class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
+                alt=''>
+            </a>
+            <a href='/articles/{{ sug.title | slug }}/'
+               class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
+              <p>
+                {{ sug.title }}
+              </p>
+            </a>
+          </div>
+          <div class='p-4 w-full h-full'>
+            {{ sug.description | markdown | safe }}
+          </div>
+          <div class='p-4 flex h-16 items-center'>
+            {% for tag in sug.tags %}
+              <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
+            {% endfor %}
+          </div>
+        </article>
+      {% endmacro %}
+
+      {{ suggestion(article.suggestions[0]) }}
+
+      <div
+        class="flex justify-center flex-col items-center text-gray-light text-center px-4 h-full"
+      >
+        <h6 class="text-2xl mb-8">Veja mais artigos escritos por mim</h6>
+        <a href='/articles/' target='_blank' rel='nofollow'
+           class='bg-dark px-4 py-2 text-gray-light hover:text-primary text-xl border-1 border-gray-light hover:border-primary'>
+          <i class='feather feather-compass mr-2'></i> Ver mais
+        </a>
+      </div>
+
+      {{ suggestion(article.suggestions[1]) }}
+    </div>
+  </section>
+{% endblock %}
+
+

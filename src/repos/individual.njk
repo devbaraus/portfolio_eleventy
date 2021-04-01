@@ -13,12 +13,14 @@ formatteron: true
 {% block body %}
   <div class='bg-gray-light'>
     <div class='container text-dark pb-8 pt-12'>
-      <div class='md:flex justify-between items-baseline py-4'>
-        <div>
+      <div class='md:flex justify-between items-baseline mt-8'>
+        <div class='mr-4'>
           <h2 class='text-3xl md:text-4xl font-bold break-all'>{{ repo.name }}</h2>
+          <span class='break-all'>
           {{ repo.description | markdown | safe }}
+          </span>
           <div class='mt-4 flex items-center'>
-          <span class='article-reactions' title='{{ repo.stargazers_count }} pessoas curtiram este repositório'>
+          <span title='{{ repo.stargazers_count }} pessoas curtiram este repositório'>
             <i class='feather feather-star'></i> {{ repo.stargazers_count }}
           </span>
             {% if repo.tags.length > 0 %}
@@ -40,12 +42,41 @@ formatteron: true
           </a>
         </div>
       </div>
-      <div class='prose max-w-none mt-8'>
-        {{ repo.readme | markdown | safe }}
+      <div class='flex w-full flex-wrap md:flex-nowrap mt-8'>
+        <div class='md:w-8/12 2xl:w-9/12 prose max-w-none'>
+          {{ repo.readme | markdown | safe }}
+        </div>
+        <div class='mt-8 md:m-0 md:w-4/12 2xl:w-3/12 sticky h-full flex top-24 flex flex-col relative md:pl-4'>
+          <a href='{{ profiles.github.url }}' class='absolute top-0 right-0 hover:text-primary transition-colors ease-in duration-200'>
+            <small class='text-xs font-thin'>
+              <i class='devicons ds-github text-lg'></i>
+            </small>
+          </a>
+          <img src='{{ profiles.github.avatar }}' alt='' class='rounded-full h-56 w-56 ring-dark shadow mb-2 mx-auto'>
+          <a href='{{ profiles.github.url }}' class='font-semibold text-lg hover:text-primary transition-colors ease-in duration-200'>{{ profiles.github.name }}</a>
+          <a href='{{ profiles.github.url }}'><small
+              class='font-thin text-sm hover:text-primary transition-colors ease-in duration-200'>{{ profiles.github.username }}</small></a>
+          <hr class='border-dark border-opacity-10 my-4 px-4'>
+          <p class='text-base bold'>{{ profiles.github.bio }}</p>
+          <p><small class='text-sm font-thin'><a href='{{ profiles.github.url }}?tab=followers' class='hover:text-primary transition-colors ease-in duration-200'><i
+                  class='feather feather-users mr-2'></i>{{ profiles.github.followers }}&nbsp;seguidores</a>&nbsp;·&nbsp;<a
+                href="{{ profiles.github.url }}?tab=following" class='hover:text-primary transition-colors ease-in duration-200'>{{ profiles.github.following }}
+                &nbsp;seguindo</a></small>
+          </p>
+          <p><a href='{{ profiles.github.url }}?tab=repositories' class='hover:text-primary transition-colors ease-in duration-200'>
+              <small class='text-sm font-thin'>
+                <i class='feather feather-git-commit mr-2'></i>
+                {{ profiles.github.repos }}&nbsp;repositórios
+                públicos
+              </small>
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-  <!-- REPOS -->
+
+  <!-- SUGGESTIONS -->
   <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
     <div class='section-header flex flex-row justify-between items-center text-gray-light'>
       <h5 id='articles' class='font-ubuntu text-3xl leading-loose relative text-primary'>Sugestões</h5>
