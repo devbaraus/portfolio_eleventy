@@ -43,7 +43,7 @@ class FlashMessage {
 
 window.FlashMessage = FlashMessage
 
-document.addEventListener('turbolinks:render', () => {
+function load() {
 	const copyMessage = new FlashMessage('#copy-message')
 
 	document.querySelectorAll('.prose pre').forEach((el) => {
@@ -52,4 +52,7 @@ document.addEventListener('turbolinks:render', () => {
 			copyMessage.open('Código copiado!', true)
 		})
 	})
-})
+}
+
+document.addEventListener('turbolinks:load', () => load(), { once: true })
+document.addEventListener('turbolinks:render', () => load())
