@@ -10,9 +10,11 @@ module.exports = {
 				1: '1px',
 			},
 			fontFamily: {
-				ubuntu: 'Ubuntu, sans-serif',
+				ubuntu:
+					'Ubuntu, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
 				consolas: 'Consolas, monospace',
-				poppins: 'Poppins, sans-serif',
+				segoe:
+					'Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
 			},
 			colors: {
 				dark: '#31263e',
