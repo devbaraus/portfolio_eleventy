@@ -1,8 +1,21 @@
-# The TEA Stack
+# Portfolio - TETW Stack
 
-Welcome to the shortest stack out there. This stack combines Tailwind CSS, Eleventy, and Alpine.js to make static site authoring easy and minimal!
+Welcome to my portfolio using the shortest stack out there. This stack combines TailwindCSS 2.0, Eleventy, Turbolinks and Webpack to make static site.
 
-It also includes Turbolinks for smooth page transitions and webpack to bundle all your assets!
+## Tech
+
+- TailwindCSS: Easy to use utility-first CSS framework
+- Eleventy: A simpler static site generator
+- Turbo: SPA performance on a SSR Website
+- Webpack: Bundler of assets
+
+## Features
+
+- Auto generate icon webfonts from SVG files.
+- Purge of CSS files
+- Minify of HTML/CSS/JS
+- GraphQL requests
+- SEO optimized
 
 ## Getting Started
 

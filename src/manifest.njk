@@ -1,0 +1,38 @@
+---
+permalink: /manifest.json
+layout: null
+eleventyExcludeFromCollections: true
+---
+{
+"name": "{{ site.name }}",
+"short_name": "{{ site.short_name }}",
+"description": "{{ site.description }}",
+"lang": "{{ site.lang }}",
+"dir": "{{ site.dir }}",
+"categories": [
+{% for item in site.categories %}
+  "{{ item }}"{{ "," if item != site.categories[site.categories.length - 1] }}
+{% endfor %}
+],
+"start_url": "{{ site.start_url }}",
+"display": "{{ site.display }}",
+"theme_color": "{{ site.theme_color }}",
+"background_color": "{{ site.background_color }}",
+"shortcuts": [
+{% for item in site.shortcuts %}
+  {
+  "name": "{{ item.name }}",
+  "url": "{{ item.url }}",
+  "description": "{{ item.description }}",
+  "icons": [
+  {% for icon in item.icons %}
+    {
+    "src": "{{ icon.src }}",
+    "sizes": "{{ icon.sizes }}"
+    }
+  {% endfor %}
+  ]
+  }{{ "," if item != site.shortcuts[site.shortcuts.length - 1] }}
+{% endfor %}
+]
+}

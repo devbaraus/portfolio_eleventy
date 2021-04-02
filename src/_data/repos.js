@@ -22,6 +22,7 @@ async function fetchData() {
 					slug
 					size
 					url
+					updatedAt
 					content: readme
 					tags {
 						name

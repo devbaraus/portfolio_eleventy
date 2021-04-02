@@ -27,6 +27,7 @@ async function fetchData() {
 						url
 						formats
 					}
+					updatedAt
 				}
 			}
 		`)

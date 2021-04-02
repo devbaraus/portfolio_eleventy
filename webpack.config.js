@@ -5,7 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
 	entry: './src/_bundle/main.js',
-	mode: process.env.NODE_ENV,
+	mode: process.env.NODE_ENV || 'development',
 	module: {
 		rules: [
 			{
@@ -29,12 +29,7 @@ module.exports = {
 	},
 	optimization: {
 		minimize: true,
-		minimizer: [
-			// For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
-			// `...`,
-			new CSSMinimizerPlugin(),
-			new TerserPlugin(),
-		],
+		minimizer: [new CSSMinimizerPlugin(), new TerserPlugin()],
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),

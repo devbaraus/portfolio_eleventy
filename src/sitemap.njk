@@ -1,0 +1,30 @@
+---
+permalink: /sitemap.xml
+layout: null
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ site.today | date("yyyy-MM-dd", false) }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  {% for item in articles %}
+    <url>
+      <loc>{{ site.url }}/articles/{{ item.title | slug }}/</loc>
+      <lastmod>{{ item.updatedAt | date("yyyy-MM-dd") }}</lastmod>
+      <changefreq>{{ item.sitemapChangeFreq | default("never") }}</changefreq>
+      <priority>{{ item.sitemapPriority | default(0.8) }}</priority>
+    </url>
+  {% endfor %}
+  {% for item in repos %}
+    <url>
+      <loc>{{ site.url }}/repos/{{ item.title | slug }}/</loc>
+      <lastmod>{{ item.updatedAt | date("yyyy-MM-dd") }}</lastmod>
+      <changefreq>{{ item.sitemapChangeFreq | default("weekly") }}</changefreq>
+      <priority>{{ item.sitemapPriority | default(0.3) }}</priority>
+    </url>
+  {% endfor %}
+</urlset>

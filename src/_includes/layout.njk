@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
-  <title>{{ title }} | DevBaraus</title>
-  <meta name='author' content='Bruno de Araújo Alves'>
+  <meta name="generator" content="{{ site.generator }}">
+  <title>{{ title }} | {{ site.short_name }}</title>
+  <meta name='description' content='{{ description | default(site.description) }}' />
+  <meta name='keywords' content='{{ keywords | default(site.keywords) }}' />
+  <meta name='author' content='{{ site.author }}'>
   <meta name='robot' content='index, follow'>
   <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,6 +15,7 @@
         href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@700&display=swap'>
   {% block head %}{% endblock %}
   <script src="/js/main.js" defer></script>
+
 </head>
 <body>
 {% include 'header.njk' %}
