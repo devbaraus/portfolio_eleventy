@@ -10,7 +10,8 @@
   <meta name='author' content='{{ site.author }}'>
   <meta name='robot' content='index, follow'>
   <link rel="stylesheet" type="text/css" href="/css/main.css">
-  <link rel='stylesheet' type="text/css" href="/css/fonts.css">
+  <link rel='preload' as='style' href="/css/fonts.css" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/fonts.css"></noscript>
   {% block head %}{% endblock %}
   <script src="/js/main.js" defer></script>
 
