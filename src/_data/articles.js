@@ -19,7 +19,6 @@ function changeImageExtension(article, ext) {
 
 	article.cover.url = replaceExt(article.cover.url, 'webp')
 	for (let index in article.cover.formats) {
-		console.log(index)
 		article.cover.formats[index].url = replaceExt(
 			article.cover.formats[index].url,
 			'webp',
