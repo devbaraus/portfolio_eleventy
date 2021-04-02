@@ -9,6 +9,26 @@ function makeSuggestion(arr, title) {
 	return shuffle
 }
 
+function changeImageExtension(article, ext) {
+	function replaceExt(url, ext) {
+		if (url.split('.').pop() !== 'webp') {
+			return url.substr(0, url.lastIndexOf('.')) + '.' + ext
+		}
+		return url
+	}
+
+	article.cover.url = replaceExt(article.cover.url, 'webp')
+	for (let index in article.cover.formats) {
+		console.log(index)
+		article.cover.formats[index].url = replaceExt(
+			article.cover.formats[index].url,
+			'webp',
+		)
+	}
+
+	return article
+}
+
 async function fetchData() {
 	try {
 		let articles = await client.request(gql`
@@ -33,6 +53,7 @@ async function fetchData() {
 		`)
 
 		articles = articles.articles.map((i) => {
+			i = changeImageExtension(i)
 			return {
 				...i,
 				tags: i.tags.map((tag) => tag.name),
