@@ -158,6 +158,9 @@
           {{ macro.card(repo, 'repo', '/repos/') }}
         {% endfor %}
       </div>
+
+      <codersrank-activity username='devbaraus' class='mt-8' labels
+                           tooltip branding='false'></codersrank-activity>
       <script>
         let win = window,
           doc = document,
@@ -166,8 +169,7 @@
           width = win.innerWidth || docElem.clientWidth || body.clientWidth,
           weeks = width < 768 ? 13 : 52
 
-        document.write(`<codersrank-activity username='devbaraus' weeks='${weeks}' class='mt-8' labels
-                           tooltip branding='false'></codersrank-activity>`)
+        document.querySelector('codersrank-activity').weeks = weeks
       </script>
     </section>
   </main>
