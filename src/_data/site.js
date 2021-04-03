@@ -39,6 +39,7 @@ module.exports = function () {
 		start_url: '/?source=pwa',
 		display: 'standalone',
 		theme_color: '#EE5622',
+		offline_enabled: true,
 		background_color: '#f0f0f7',
 		shortcuts: [
 			{
