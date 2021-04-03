@@ -36,7 +36,7 @@ module.exports = function () {
 		lang: 'pt',
 		dir: 'auto',
 		categories: ['portfolio', 'blog'],
-		start_url: '/',
+		start_url: '/?source=pwa',
 		display: 'standalone',
 		theme_color: '#EE5622',
 		background_color: '#f0f0f7',
