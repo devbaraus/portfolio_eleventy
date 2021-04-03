@@ -5,44 +5,45 @@
 {% import 'macros.njk' as macro %}
 
 {% block body %}
+
   <main>
     <!-- JUMBO -->
     <div class='relative bg-gray-light focus:bg-gray-100'>
-      {# <ul class='circles'> #}
-      {# <li> #}
-      {# <Icon name='docker' :dev='true' class='text-2xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='vuejs' :dev='true' class='text-4xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='figma' :dev='true' class='text-xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='react' :dev='true' class='text-2xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='googlecloud' :dev='true' class='text-xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='html5' :dev='true' class='text-3xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='css3' :dev='true' class='text-xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='javascript' :dev='true' class='text-4xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='github' :dev='true' class='text-4xl' /> #}
-      {# </li> #}
-      {# <li> #}
-      {# <Icon name='dev' :dev='true' class='text-2xl' /> #}
-      {# </li> #}
-      {# </ul> #}
+      <ul class='hero-icons'>
+        <li>
+          <i class='devicons ds-docker text-2xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-vuejs text-4xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-figma text-xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-netlify text-2xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-googlecloud text-xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-html5 text-3xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-css3 text-xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-javascript text-4xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-github text-4xl'></i>
+        </li>
+        <li>
+          <i class='devicons ds-dev text-2xl'></i>
+        </li>
+      </ul>
       <div class='min-h-screen flex w-screen pt-14 justify-between items-center z-10'>
         <div class='container items-center'>
-          <div class='max-w-3xl 2xl:max-w-full mx-auto break-words'>
+          <div class='max-w-3xl mx-auto break-words'>
             <div class='pb-24'>
               <h4 class='font-bold text-xl tracking-tight'>
                 Olá, tudo bem?!
@@ -120,7 +121,7 @@
       </div>
       <div class='card-grid'>
         {% for skill in home.skills %}
-          <article class='bg-light pb-4 text-gray-light shadow-lg'>
+          <article class='bg-light pb-4 text-gray-light shadow-lg reveal reveal-hidden'>
             <div class='p-4'>
               <i title='{{ skill.icon.title }}' class='{{ skill.icon.class }} text-4xl text-primary'></i>
               <p class='text-xl'>{{ skill.label }}</p>
@@ -157,8 +158,17 @@
           {{ macro.card(repo, 'repo', '/repos/') }}
         {% endfor %}
       </div>
-      <codersrank-activity username='devbaraus' :weeks='codersrank_weeks' class='mt-8' labels
-                           tooltip branding='false'></codersrank-activity>
+      <script>
+        let win = window,
+          doc = document,
+          docElem = doc.documentElement,
+          body = doc.getElementsByTagName('body')[0],
+          width = win.innerWidth || docElem.clientWidth || body.clientWidth,
+          weeks = width < 768 ? 13 : 52
+
+        document.write(`<codersrank-activity username='devbaraus' weeks='${weeks}' class='mt-8' labels
+                           tooltip branding='false'></codersrank-activity>`)
+      </script>
     </section>
   </main>
   <script src='https://unpkg.com/@codersrank/activity@0.9.14/codersrank-activity.min.js' async></script>

@@ -1,8 +1,8 @@
 {% macro card(object, type, route) %}
-  <article class='bg-light text-white shadow-lg relative flex flex-col justify-between'>
+  <article class='bg-light text-white shadow-lg relative flex flex-col justify-between reveal reveal-hidden'>
     <div class='relative p-0'>
       {% if type != 'repo' %}
-        <a href='{{ route }}{{ object.title | slug }}'  target='_self'>
+        <a href='{{ route }}{{ object.title | slug }}' target='_self'>
           <img
             srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
             src='{{ object.cover.url }}'
@@ -79,12 +79,12 @@
   <hr class='border-dark border-opacity-10 my-4 px-4'>
   <p class='text-base bold'>{{ profile.bio }}</p>
   <p><small class='text-sm font-light'><a href='{{ profile.url }}' target='_self'
-                                         class='hover:text-primary transition-colors ease-in duration-200'><i
+                                          class='hover:text-primary transition-colors ease-in duration-200'><i
           class='feather feather-star mr-2'></i>{{ profile.reactions }}&nbsp;reações</a>
     </small>
   </p>
   <p><a href='{{ profile.url }}' class='hover:text-primary transition-colors ease-in duration-200'
-    target='_self'>
+        target='_self'>
       <small class='text-sm font-light'>
         <i class='feather feather-edit-3 mr-2'></i>
         {{ profile.articles }}&nbsp;artigos publicados
@@ -95,26 +95,27 @@
 
 {% macro stickyGithub(profile) %}
   <a href='{{ profile.url }}'
-     class='absolute top-0 right-0 hover:text-primary transition-colors ease-in duration-200'  target='_self'>
+     class='absolute top-0 right-0 hover:text-primary transition-colors ease-in duration-200' target='_self'>
     <small class='text-xs font-light'>
       <i class='devicons ds-github text-lg'></i>
     </small>
   </a>
   <img src='{{ profile.avatar }}' alt='' class='rounded-full h-56 w-56 ring-dark shadow mb-2 mx-auto'>
   <a href='{{ profile.url }}'
-     class='font-semibold text-lg hover:text-primary transition-colors ease-in duration-200'  target='_self'>{{ profile.name }}</a>
-  <a href='{{ profile.url }}'  target='_self'><small
+     class='font-semibold text-lg hover:text-primary transition-colors ease-in duration-200'
+     target='_self'>{{ profile.name }}</a>
+  <a href='{{ profile.url }}' target='_self'><small
       class='font-light text-sm hover:text-primary transition-colors ease-in duration-200'>{{ profile.username }}</small></a>
   <hr class='border-dark border-opacity-10 my-4 px-4'>
   <p class='text-base bold'>{{ profile.bio }}</p>
-  <p><small class='text-sm font-light'><a href='{{ profile.url }}?tab=followers'  target='_self'
-                                         class='hover:text-primary transition-colors ease-in duration-200'><i
+  <p><small class='text-sm font-light'><a href='{{ profile.url }}?tab=followers' target='_self'
+                                          class='hover:text-primary transition-colors ease-in duration-200'><i
           class='feather feather-users mr-2'></i>{{ profile.followers }}&nbsp;seguidores</a>&nbsp;·&nbsp;<a
         href="{{ profile.url }}?tab=following"
         class='hover:text-primary transition-colors ease-in duration-200'>{{ profile.following }}
         &nbsp;seguindo</a></small>
   </p>
-  <p><a href='{{ profile.url }}?tab=repositories'  target='_self'
+  <p><a href='{{ profile.url }}?tab=repositories' target='_self'
         class='hover:text-primary transition-colors ease-in duration-200'>
       <small class='text-sm font-light'>
         <i class='feather feather-git-commit mr-2'></i>

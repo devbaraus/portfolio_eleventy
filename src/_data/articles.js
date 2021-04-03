@@ -30,7 +30,7 @@ function changeImageExtension(article, ext) {
 
 async function fetchData() {
 	try {
-		let articles = await client.request(gql`
+		let { articles } = await client.request(gql`
 			query {
 				articles {
 					title
@@ -51,23 +51,14 @@ async function fetchData() {
 			}
 		`)
 
-		articles = articles.articles.map((i) => {
-			i = changeImageExtension(i)
-			return {
-				...i,
-				tags: i.tags.map((tag) => tag.name),
-				reactions: i.public_reactions_count,
-				time: Math.ceil(i.content.replace('\n', '').split(' ').length / 240),
-			}
-		})
-
 		articles = articles.map((i) => {
-			return {
-				...i,
-				suggestions: makeSuggestion(articles, i.title),
-			}
+			i = changeImageExtension(i)
+			i.tags = i.tags.map((tag) => tag.name)
+			i.reactions = i.public_reactions_count
+			i.time = Math.ceil(i.content.replace('\n', '').split(' ').length / 240)
+			i.suggestions = makeSuggestion(articles, i.title)
+			return i
 		})
-
 		return articles
 	} catch (e) {
 		console.log(e)
