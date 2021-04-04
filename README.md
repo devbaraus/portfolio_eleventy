@@ -18,6 +18,8 @@ Welcome to my portfolio using the shortest stack out there. This stack combines 
 
 ## TODO
 
-- [ ] Page scrolled progress
+- [x] Page scrolled progress
 - [ ] Image lightbox
-- [ ] Contact form
+- [x] Contact form
+- [x] Google Analytics
+- [ ] Dynamic Meta

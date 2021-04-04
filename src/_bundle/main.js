@@ -25,13 +25,34 @@ if (document.querySelector('.glide')) {
 	}).mount()
 }
 
-const copyMessage = new FlashMessage('#copy-message')
+const flashMessage = new FlashMessage('#copy-message')
 
 document.querySelectorAll('.prose pre').forEach((el) => {
 	el.addEventListener('click', () => {
 		navigator.clipboard.writeText(el.textContent)
-		copyMessage.open('Código copiado!', true)
+		flashMessage.open('Código copiado!', true)
 	})
+})
+
+document.querySelector('#form-contact').addEventListener('submit', ($event) => {
+	event.preventDefault()
+	const formData = new FormData(event.target)
+
+	fetch('https://formspree.io/f/mwkrddvn', {
+		method: 'POST',
+		body: formData,
+	})
+		.then((response) => flashMessage.open('Email enviado!', true))
+		.catch((error) => flashMessage.open('Email não enviado!', false))
+})
+
+window.addEventListener('scroll', () => {
+	let winScroll = document.body.scrollTop || document.documentElement.scrollTop
+	let height =
+		document.documentElement.scrollHeight -
+		document.documentElement.clientHeight
+	let scrolled = (winScroll / height) * 100
+	document.querySelector('#scrolled').style.width = scrolled + '%'
 })
 
 if ('serviceWorker' in navigator) {

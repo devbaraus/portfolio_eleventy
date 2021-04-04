@@ -1,7 +1,10 @@
 <header>
   <div class="fixed h-12 bg-gray-light w-screen z-10">
-    <div class='py-2 flex justify-between items-center w-full container relative'>
-      <div class='absolute flex h-full w-full bg-gray-light z-20 md:z-0 top-0 left-0'></div>
+    <div class='py-2 flex justify-between items-center w-full container'>
+      <div class='absolute flex h-12 w-screen bg-gray-light z-20 md:z-0 top-0 left-0'></div>
+      <div class='absolute flex h-1 top-11 w-screen bg-transparent z-20 md:z-0 left-0'>
+        <div id='scrolled' class='h-full bg-primary'></div>
+      </div>
       <a href="/" target='_self' class="cursor-pointer transition-opacity duration-200 ease-in hover:opacity-75 z-20">
         <!--          <Logo class="h-12 w-16 inline-block" />-->
         <span class="font-bold text-2xl align-middle inline-block">
@@ -10,7 +13,7 @@
       </a>
       <input id='nav-collapse' type='checkbox' aria-hidden='true' class='hidden'>
       <label for='nav-collapse' class='text-2xl block md:hidden z-20'></label>
-      <nav id='navbar' class='fixed transition-all duration-500 pt-12 ease-in left-0 z-10  h-screen w-screen
+      <nav id='navbar' class='fixed transition-all duration-200 pt-12 ease-in left-0 z-10  h-screen w-screen
       bg-gray-light md:p-0 md:static md:h-full md:w-full md:flex-initial md:m-0 '>
         <ul
           class="flex flex-col h-full w-full overflow-y-auto md:overflow-hidden justify-center md:flex-row items-center md:justify-end font-bold">

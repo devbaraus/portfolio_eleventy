@@ -1,4 +1,8 @@
-const { makeSuggestions, changeImageExtension } = require('../_utils/requests')
+const {
+	makeSuggestions,
+	changeImageExtension,
+	writeDataFile,
+} = require('../_utils/requests')
 const { client, gql } = require('../../graphql')
 
 async function fetchData() {
@@ -41,7 +45,10 @@ async function fetchData() {
 		return articles
 	} catch (e) {
 		console.log(e)
+		return {}
 	}
 }
 
-module.exports = fetchData
+fetchData().then((res) => {
+	writeDataFile('../_data/articles.json', res)
+})

@@ -1,5 +1,6 @@
 require('dotenv').config()
 const axios = require('axios')
+const { writeDataFile } = require('./requests')
 
 const { client, gql } = require('../../graphql')
 
@@ -78,4 +79,6 @@ async function fetchProfiles() {
 	}
 }
 
-module.exports = fetchProfiles
+fetchProfiles().then((res) => {
+	writeDataFile('../_data/profiles.json', res)
+})

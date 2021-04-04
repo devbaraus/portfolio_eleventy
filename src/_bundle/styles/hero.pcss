@@ -1,12 +1,10 @@
 .hero-icons {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  color: rgba(49, 38, 62, 0.4);
+  @apply text-dark opacity-40 left-0 top-0 absolute overflow-hidden w-full h-full;
   text-shadow: black;
+
+  &.hero-icons-light {
+    @apply text-gray-light;
+  }
 
   li {
     position: absolute;

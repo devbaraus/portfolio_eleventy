@@ -5,6 +5,14 @@ module.exports = {
 			center: true,
 			padding: '2rem',
 		},
+		colors: {
+			dark: '#31263e',
+			light: '#44355b',
+			gray: {
+				light: '#f0f0f7',
+			},
+			primary: '#ee5622',
+		},
 		extend: {
 			borderWidth: {
 				1: '1px',
@@ -12,16 +20,9 @@ module.exports = {
 			fontFamily: {
 				ubuntu: 'Ubuntu, sans-serif',
 				consolas: 'Consolas, monospace',
-				poppins: 'Poppins, Segoe UI, sans-serif',
+				poppins: 'Poppins, Roboto, sans-serif',
 			},
-			colors: {
-				dark: '#31263e',
-				light: '#44355b',
-				gray: {
-					light: '#f0f0f7',
-				},
-				primary: '#ee5622',
-			},
+
 			typography: (theme) => ({
 				DEFAULT: {
 					css: {

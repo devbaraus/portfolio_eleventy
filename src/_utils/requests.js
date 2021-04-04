@@ -1,4 +1,7 @@
 const _ = require('lodash')
+const { writeFileSync } = require('fs')
+const stringify = require('json-stringify-safe')
+const { resolve } = require('path')
 
 function makeSuggestions(arr, title) {
 	const filter = arr.filter((item) => item.title !== title)
@@ -24,7 +27,12 @@ function changeImageExtension(object, ext = 'webp') {
 	return object
 }
 
+function writeDataFile(path, data) {
+	writeFileSync(resolve(__dirname, path), stringify(data))
+}
+
 module.exports = {
 	changeImageExtension,
 	makeSuggestions,
+	writeDataFile,
 }
