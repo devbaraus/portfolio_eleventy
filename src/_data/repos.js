@@ -1,13 +1,5 @@
+const { makeSuggestions } = require('../_utils/requests')
 const { client, gql } = require('../../graphql')
-const _ = require('lodash')
-
-function makeSuggestion(repos, title) {
-	const filter = repos.filter((item) => item.title !== title)
-
-	const shuffle = _.shuffle(filter).slice(0, 2)
-
-	return shuffle
-}
 
 async function fetchData() {
 	try {
@@ -32,17 +24,13 @@ async function fetchData() {
 		`)
 
 		repos = repos.repositories.map((i) => {
-			return {
-				...i,
-				tags: i.tags.map((tag) => tag.name),
-			}
+			i.tags = i.tags.map((tag) => tag.name)
+			return i
 		})
 
 		repos = repos.map((i) => {
-			return {
-				...i,
-				suggestions: makeSuggestion(repos, i.title),
-			}
+			i.suggestions = makeSuggestions(repos, i.title)
+			return i
 		})
 
 		return repos

@@ -1,3 +1,5 @@
+@import "../../node_modules/@glidejs/glide/dist/css/glide.core.css";
+
 @import 'tailwindcss/base';
 @import './styles/base.pcss';
 
@@ -42,8 +44,14 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.turbolinks-progress-bar {
-  @apply bg-primary;
+.glide__bullet {
+  @apply rounded-none;
+  &.glide__bullet--active {
+    @apply bg-primary;
+  }
+  & + & {
+    @apply ml-1;
+  }
 }
 
 .card-grid {

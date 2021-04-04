@@ -1,6 +1,6 @@
 module.exports = {
 	globDirectory: 'dist/',
-	globPatterns: ['**/*.{html,json,js,css}'],
+	globPatterns: ['**/*.{json,js,css}'],
 	swDest: 'dist/sw.js',
 	mode: process.env.NODE_ENV,
 

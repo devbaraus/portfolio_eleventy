@@ -1,0 +1,20 @@
+---
+formatteroff: true
+pagination:
+  data: sides
+  size: 1
+  alias: side
+permalink: "sides/{{ side.title | slug }}/"
+formatteron: true
+---
+{% set title = side.title %}
+{% extends "layout.njk" %}
+{% import "macros.njk" as macro %}
+
+{% block body %}
+  {{ macro.individual(side, 'side', {url: side.url, carousel: side.carousel, links: side.links}) }}
+
+  <!-- SUGGESTIONS -->
+  {{ macro.suggestions(side.suggestions, 'side', '/sides/') }}
+{% endblock %}
+
