@@ -4,11 +4,11 @@
       {% if type != 'repo' %}
         <a href='{{ route }}{{ object.title | slug }}' target='_self'>
           <img
-            srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
-            src='{{ object.cover.url }}'
-            loading='lazy'
-            class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
-            alt=''>
+              srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
+              src='{{ object.cover.url }}'
+              loading='lazy'
+              class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
+              alt='{{ object.cover.alternativeText }}'>
         </a>
       {% endif %}
       <a href='{{ route }}{{ object.title | slug }}/'
@@ -26,21 +26,21 @@
     {% endif %}
     <div class='p-4 flex h-16 items-center'>
       {% for tag in object.tags %}
-        <i title='{{ tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
+        <i title='{{ tag | tag }}' class='text-xl mr-2 devicons ds-{{ tag }}'></i>
       {% endfor %}
     </div>
   </article>
 {% endmacro %}
 
 {% macro suggestions(suggestions, type, route) %}
-  <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
+  <section class='container pt-6 relative border-t-1 border-gray-light border-opacity-10'>
     <div class='section-header flex flex-row justify-between items-center text-gray-light'>
       <h5 id='articles' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Sugestões</h5>
     </div>
     <div class='card-grid grid-suggestions'>
       {{ card(suggestions[0], type, route) if suggestions[0] }}
       <div
-        class="flex justify-center flex-col items-center text-gray-light text-center px-4 h-full"
+          class="flex justify-center flex-col items-center text-gray-light text-center px-4 h-full"
       >
         <h6 class="text-2xl mb-8">
           {% if type == 'repo' %}
@@ -75,12 +75,12 @@
   <a href='{{ profile.url }}'
      target='_self'
      class='hover:text-primary transition-colors ease-in duration-200'><small
-      class='font-light text-sm'>{{ profile.username }}</small></a>
+        class='font-light text-sm'>{{ profile.username }}</small></a>
   <hr class='border-dark border-opacity-10 my-4 px-4'>
   <p class='text-base bold'>{{ profile.bio }}</p>
   <p><small class='text-sm font-light'><a href='{{ profile.url }}' target='_self'
                                           class='hover:text-primary transition-colors ease-in duration-200'><i
-          class='feather feather-star mr-2'></i>{{ profile.reactions }}&nbsp;reações</a>
+            class='feather feather-star mr-2'></i>{{ profile.reactions }}&nbsp;reações</a>
     </small>
   </p>
   <p><a href='{{ profile.url }}' class='hover:text-primary transition-colors ease-in duration-200'
@@ -105,14 +105,14 @@
      class='font-semibold text-lg hover:text-primary transition-colors ease-in duration-200'
      target='_self'>{{ profile.name }}</a>
   <a href='{{ profile.url }}' target='_self'><small
-      class='font-light text-sm hover:text-primary transition-colors ease-in duration-200'>{{ profile.username }}</small></a>
+        class='font-light text-sm hover:text-primary transition-colors ease-in duration-200'>{{ profile.username }}</small></a>
   <hr class='border-dark border-opacity-10 my-4 px-4'>
   <p class='text-base bold'>{{ profile.bio }}</p>
   <p><small class='text-sm font-light'><a href='{{ profile.url }}?tab=followers' target='_self'
                                           class='hover:text-primary transition-colors ease-in duration-200'><i
-          class='feather feather-users mr-2'></i>{{ profile.followers }}&nbsp;seguidores</a>&nbsp;·&nbsp;<a
-        href="{{ profile.url }}?tab=following"
-        class='hover:text-primary transition-colors ease-in duration-200'>{{ profile.following }}
+            class='feather feather-users mr-2'></i>{{ profile.followers }}&nbsp;seguidores</a>&nbsp;·&nbsp;<a
+          href="{{ profile.url }}?tab=following"
+          class='hover:text-primary transition-colors ease-in duration-200'>{{ profile.following }}
         &nbsp;seguindo</a></small>
   </p>
   <p><a href='{{ profile.url }}?tab=repositories' target='_self'
@@ -127,27 +127,21 @@
 {% endmacro %}
 
 {% macro stickyProject(project) %}
-  <a href='{{ project.url }}'
-     class='absolute top-0 right-0 hover:text-primary transition-colors ease-in duration-200' target='_self'>
-    <small class='text-xs font-light'>
-      <i class='devicons ds-github text-lg'></i>
-    </small>
-  </a>
   <div class="glide">
     <div class="glide__track" data-glide-el="track">
       <div class="glide__slides">
         {% for image in project.carousel %}
           <figure
-            class="glide__slide"
+              class="glide__slide"
           >
             <img
-              srcset='{{ image.formats.medium.url }} {{ image.formats.medium.width }}w,  {{ image.formats.small.url }} {{ image.formats.small.width }}w, {{ image.formats.thumbnail.url }} {{ image.formats.thumbnail.width }}w'
-              src='{{ image.url }}'
-              alt=''
-              style="width: 100%; height: 12rem"
-              class="object-cover"
+                srcset='{{ image.formats.medium.url }} {{ image.formats.medium.width }}w,  {{ image.formats.small.url }} {{ image.formats.small.width }}w, {{ image.formats.thumbnail.url }} {{ image.formats.thumbnail.width }}w'
+                src='{{ image.url }}'
+                alt='{{ image.alternativeText }}'
+                style="width: 100%; height: 12rem"
+                class="object-cover"
             />
-            <figcaption class='mt-1 text-center'>{{ image.alternativeText }}</figcaption>
+            <figcaption class='mt-1 text-center text-sm'>{{ image.alternativeText }}</figcaption>
           </figure>
         {% endfor %}
       </div>
@@ -156,44 +150,53 @@
     <div class="glide__bullets flex justify-between mt-2" data-glide-el="controls[nav]">
       {% for _ in project.carousel %}
         <span class="glide__bullet w-full h-2 bg-dark cursor-pointer"
-                data-glide-dir="={{ loop.index - 1 }}"></span>
+              data-glide-dir="={{ loop.index0 }}"></span>
       {% endfor %}
     </div>
   </div>
-  <hr class="border-dark opacity-10 my-4" />
-  <div>
-    <a href='{{ project.url }}' target='_blank' rel='noopener noreferrer' class='link'>{{ project.url }}</a>
-  </div>
-  <div class='flex flex-col justify-start items-start mt-4'>
-    {% for link in project.links %}
-      <a href='{{ link.url }}'
-         class='bg-dark hover:bg-primary px-4 py-2 text-gray-light text-sm px-1 mt-2'>
-        <i class='devicons ds-{{ link.tag }} mr-1'></i> {{ link.text }}
-      </a>
-    {% endfor %}
-  </div>
+  {% if project.url %}
+    <hr class="border-dark opacity-10 my-4" />
+    <div>
+      <p class='font-light text-xs'>Acesso:</p>
+      <a href='{{ project.url }}' target='_blank' rel='noopener noreferrer' class='link'>{{ project.url }}</a>
+    </div>
+  {% endif %}
+  {% if project.links.length > 0 %}
+    <hr class="border-dark opacity-10 my-4" />
+    <div class='flex flex-col justify-start items-start'>
+      <p class='font-light text-xs'>Recursos:</p>
+      {% for link in project.links %}
+        <a href='{{ link.url }}'
+           class='bg-dark hover:bg-primary px-4 py-2 text-gray-light text-sm px-1 mt-2'>
+          <i class='devicons ds-{{ link.tag }} mr-1'></i> {{ link.text | tag }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
 
 
 {% endmacro %}
 
 {% macro individual(object, type, profile) %}
-  <div class='bg-gray-light pt-12'>
+  <div class='bg-gray-light'>
     {% if type != 'repo' %}
       <div class='bg-dark {{ 'h-64' if type == 'article' else 'h-48' }}'>
         <div class='container-fluid flex items-center justify-center h-full'>
           {% if (type == 'article') or (type == 'project') %}
             <img
-              srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
-              src='{{ object.cover.url }}' class='object-cover h-full' alt=''>
+                {% if type == 'article' %}
+                  srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
+                {% endif %}
+                src='{{ object.cover.url }}' class='object-cover h-full {{ 'w-full' if type == 'project' }}' alt=''>
           {% elseif type == 'side' %}
             <img
-              src='{{ object.logo.url }}' class='object-object-contain h-32' alt=''>
+                src='{{ object.logo }}' class='object-object-contain h-32 px-8' alt='Logo {{ object.title }}'>
           {% endif %}
         </div>
       </div>
     {% endif %}
-    <div class='container text-dark pb-8 '>
-      <div class='md:flex justify-between items-baseline mt-8'>
+    <div class='container text-dark pt-2 pb-8'>
+      <div class='md:flex justify-between items-baseline'>
         <div class='md:w-8/12'>
           <h2 class='text-3xl md:text-4xl font-bold break-words'>{{ object.title }}</h2>
           <span class='break-words'>
@@ -206,7 +209,7 @@
           </span>
               <span class="opacity-50 text-primary mx-2">|</span>
               <span
-                title='Aproximadamente {{ object.time }} minutos de leitura'>
+                  title='Aproximadamente {{ object.time }} minutos de leitura'>
             <i class='feather feather-book-open'></i>&nbsp;{{ object.time }}&nbsp;min
           </span>
             {% elseif type == 'repo' %}
@@ -214,41 +217,43 @@
             <i class='feather feather-star'></i> {{ object.stargazers_count }}
           </span>
             {% endif %}
-            {% if (object.tags.length > 0) and (type != 'side') %}
+            {% if (object.tags.length > 0) and (type != 'side') and (type !== 'project') %}
               <span class="opacity-50 text-primary mx-2">|</span>
             {% endif %}
             {% for tag in object.tags %}
               <i
-                class="text-2xl devicons ds-{{ tag }} mr-2"
+                  class="text-2xl devicons ds-{{ tag }} mr-2" title='{{ tag }}'
               ></i>
             {% endfor %}
           </div>
         </div>
         <div
-          class="w-full mt-8 md:m-0 md:w-4/12 md:flex md:justify-end"
+            class="w-full mt-8 md:m-0 md:w-4/12 md:flex md:justify-end"
         >
-          <a href='{{ object.url }}' target='_blank' rel='nofollow'
-             class='bg-dark px-4 py-2 text-gray-light hover:text-primary'>
-            {% if type == 'article' %}
-              Acessar artigo
-            {% elseif type == 'side' %}
-              Acessar projeto
-            {% elseif type == 'repo' %}
-              Acessar repositório
-            {% endif %}
-          </a>
+          {% if object.url %}
+            <a href='{{ object.url }}' target='_blank' rel='nofollow'
+               class='bg-dark px-4 py-2 text-gray-light hover:text-primary'>
+              {% if type == 'article' %}
+                <i class='devicons ds-devto mr-1'></i>Acessar artigo
+              {% elseif (type == 'side') or (type == 'project') %}
+                <i class='feather feather-external-link mr-1'></i>Acessar projeto
+              {% elseif type == 'repo' %}
+                <i class='devicons ds-github mr-1'></i>Acessar repositório
+              {% endif %}
+            </a>
+          {% endif %}
         </div>
       </div>
-      <div class='flex w-full flex-wrap md:flex-nowrap mt-8'>
+      <div class='flex w-full flex-wrap md:flex-nowrap'>
         <div class='md:w-8/12 2xl:w-9/12 prose max-w-none w-full'>
           {{ object.content | markdown | safe }}
         </div>
-        <div class='w-full mt-8 md:m-0 md:w-4/12 2xl:w-3/12 sticky h-full flex top-24 flex flex-col relative md:pl-4'>
+        <div class='w-full mt-8 md:m-0 md:w-4/12 2xl:w-3/12 sticky h-full flex top-12 flex flex-col relative md:pl-4'>
           {% if type == 'repo' %}
             {{ stickyGithub(profile) }}
           {% elseif type == 'article' %}
             {{ stickyDev(profile) }}
-          {% elseif type == 'side' %}
+          {% else %}
             {{ stickyProject(profile) }}
           {% endif %}
         </div>

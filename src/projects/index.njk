@@ -1,0 +1,55 @@
+---
+formatteroff: true
+pagination:
+  data: projects
+  size: 24
+permalink: 'projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html'
+formatteron: true
+---
+
+{% set title = 'Desenvolvedor Web Full Stack' %}
+{% extends "layout.njk" %}
+{% import 'macros.njk' as macro %}
+
+{% block body %}
+  <section class='container mt-2 mb-12 relative'>
+    <div class='flex flex-col text-gray-light'>
+      <h5 id='skills' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Projetos</h5>
+      <div
+        class="flex flex-wrap justify-between lg:items-center w-full flex-col lg:flex-row"
+      >
+        <span>Estes são projetos implementados para resolução de algum problema real.</span>
+      </div>
+    </div>
+    <div class='card-grid'>
+      {% for item in pagination.items %}
+        {{ macro.card(item, 'project', '/projects/') }}
+      {% endfor %}
+    </div>
+  </section>
+  <nav class='container'>
+    <ul class='list-none flex items-center justify-center text-gray-light w-full' aria-labelledby='navigation'
+        role='list'>
+      <li aria-hidden='true' class='{{ 'invisible' if pagination.pageNumber == 0 }}'>
+        <a href='{{ pagination.page.previous }}' target='_self'>
+          <i class='feather feather-chevron-left'></i>
+        </a>
+      </li>
+      {%- for item in pagination.hrefs %}
+        <li class='ml-2'>
+          <a href="{{ item }}"
+             class='{{ 'text-primary' if pagination.pageNumber == loop.index0 }} hover:opacity-75 transition-colors duration-200 ease-in'
+             target='_self'>
+            {{ loop.index }}
+          </a>
+        </li>
+      {% endfor -%}
+      <li aria-hidden='true' class='{{ 'invisible' if pagination.pageNumber == pagination.hrefs.length - 1 }} ml-2'>
+        <a href='{{ pagination.page.next }}' target='_self'>
+          <i class='feather feather-chevron-right'></i>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+{% endblock %}

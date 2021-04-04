@@ -5,7 +5,7 @@ async function fetchData() {
 	try {
 		let { sides } = await client.request(gql`
 			query {
-				sides(limit: 6) {
+				sides {
 					_id
 					title
 					url
@@ -21,9 +21,7 @@ async function fetchData() {
 							name
 						}
 					}
-					logo {
-						url
-					}
+					logo
 					carousel {
 						url
 						alternativeText

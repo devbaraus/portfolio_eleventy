@@ -49,9 +49,11 @@
 </head>
 <body>
 {% include 'header.njk' %}
-{% block body %}
-  {{ content | safe }}
-{% endblock %}
+<main class='py-12'>
+  {% block body %}
+    {{ content | safe }}
+  {% endblock %}
+</main>
 {% include 'footer.njk' %}
 <div
   id="copy-message"

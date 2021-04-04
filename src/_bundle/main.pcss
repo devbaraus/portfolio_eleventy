@@ -46,9 +46,11 @@ body::-webkit-scrollbar {
 
 .glide__bullet {
   @apply rounded-none;
+
   &.glide__bullet--active {
     @apply bg-primary;
   }
+
   & + & {
     @apply ml-1;
   }
@@ -63,50 +65,16 @@ body::-webkit-scrollbar {
   @apply px-8 mx-auto;
 }
 
-a.link-dark {
-  @apply relative;
-  background-size: 100% 200%;
-  background-position: 0 0;
-  transition: background-position 300ms ease-in-out, padding 300ms ease-in-out;
-  background-image: linear-gradient(
-    transparent 0%,
-    transparent calc(50% - 8px),
-    rgba(49, 38, 32, 0.35) calc(50% - 8px),
-    rgba(49, 38, 32, 0.35) 100%
-  );
+a.link-dark, a.link {
+  @apply underline break-words transition-colors duration-200 ease-in;
+}
 
-  &:hover {
-    background-image: linear-gradient(
-      transparent,
-      transparent calc(50% - 8px),
-      rgba(49, 38, 32, 0.8) calc(50% - 8px),
-      rgba(49, 38, 32, 0.8)
-    );
-    background-position: 0 100%;
-  }
+a.link-dark {
+  @apply hover:text-dark;
 }
 
 a.link {
-  @apply relative;
-  background-size: 100% 200%;
-  background-position: 0 0;
-  transition: background-position 300ms ease-in-out, padding 300ms ease-in-out;
-  background-image: linear-gradient(
-    transparent 0%,
-    transparent calc(50% - 8px),
-    rgba(238, 86, 34, 0.35) calc(50% - 8px),
-    rgba(238, 86, 34, 0.35) 100%
-  );
-
-  &:hover {
-    background-image: linear-gradient(
-      transparent,
-      transparent calc(50% - 8px),
-      rgba(238, 86, 34, 0.8) calc(50% - 8px),
-      rgba(238, 86, 34, 0.8)
-    );
-    background-position: 0 100%;
-  }
+  @apply hover:text-primary;
 }
 
 .image-open-modal {

@@ -17,6 +17,7 @@ async function fetchData() {
 					}
 					cover {
 						url
+						alternativeText
 						formats
 					}
 					updatedAt

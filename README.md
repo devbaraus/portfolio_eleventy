@@ -15,3 +15,9 @@ Welcome to my portfolio using the shortest stack out there. This stack combines 
 - Minify of HTML/CSS/JS
 - GraphQL requests
 - SEO optimized
+
+## TODO
+
+- [ ] Page scrolled progress
+- [ ] Image lightbox
+- [ ] Contact form

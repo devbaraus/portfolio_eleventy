@@ -7,7 +7,7 @@ import './main.pcss'
 
 // JS
 import FlashMessage from './modules/flashmessage'
-import Glide from '@glidejs/glide'
+import './modules/glide'
 import './modules/scrollreveal'
 
 ScrollReveal.reveal('.reveal', {
@@ -16,13 +16,14 @@ ScrollReveal.reveal('.reveal', {
 	distance: '-20px',
 })
 
-window.Glide = Glide
-new Glide('.glide', {
-	type: 'carousel',
-	startAt: 0,
-	perView: 1,
-	autoplay: 3000,
-}).mount()
+if (document.querySelector('.glide')) {
+	new Glide('.glide', {
+		type: 'carousel',
+		startAt: 0,
+		perView: 1,
+		autoplay: 3000,
+	}).mount()
+}
 
 const copyMessage = new FlashMessage('#copy-message')
 

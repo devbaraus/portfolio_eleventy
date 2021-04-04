@@ -1,0 +1,20 @@
+---
+formatteroff: true
+pagination:
+  data: projects
+  size: 1
+  alias: project
+permalink: "projects/{{ project.title | slug }}/"
+formatteron: true
+---
+{% set title = project.title %}
+{% extends "layout.njk" %}
+{% import "macros.njk" as macro %}
+
+{% block body %}
+  {{ macro.individual(project, 'project', {url: project.url, carousel: project.carousel, links: project.links}) }}
+
+  <!-- SUGGESTIONS -->
+  {{ macro.suggestions(project.suggestions, 'project', '/projects/') }}
+{% endblock %}
+
