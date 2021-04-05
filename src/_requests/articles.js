@@ -2,7 +2,7 @@ const {
 	makeSuggestions,
 	changeImageExtension,
 	writeDataFile,
-} = require('.//requests')
+} = require('./requests')
 const { client, gql } = require('../../graphql')
 
 async function fetchData() {

@@ -1,5 +1,5 @@
 const { writeDataFile } = require('./requests')
-const { makeSuggestions } = require('.//requests')
+const { makeSuggestions } = require('./requests')
 const { client, gql } = require('../../graphql')
 
 async function fetchData() {
