@@ -223,7 +223,7 @@
             {% endif %}
             {% for tag in object.tags %}
               <i
-                class="text-2xl devicons ds-{{ tag }} mr-2" title='{{ tag }}'
+                class="text-2xl devicons ds-{{ tag }} mr-2" title='{{ tag | tag }}'
               ></i>
             {% endfor %}
           </div>
