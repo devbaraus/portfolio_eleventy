@@ -19,6 +19,12 @@ module.exports = (config) => {
 	config.addFilter('join', (value, separator) => {
 		return value.join(separator || ',')
 	})
+	config.addFilter('ext', (value, ext) => {
+		if (value.split('.').pop() !== ext) {
+			return value.substr(0, value.lastIndexOf('.')) + '.' + ext
+		}
+		return value
+	})
 
 	config.addFilter('tag', (name) => {
 		name = name.toLowerCase()

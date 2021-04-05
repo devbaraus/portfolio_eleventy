@@ -10,7 +10,7 @@ formatteron: true
 {% set title = article.title %}
 {% set description = article.description %}
 {% set keywords = ['artigo', 'programação', 'aprendizado', 'tutorial', 'dev', 'devcommunity', 'público'] | merge(article.tags) | join %}
-{% set oglarge = article.cover.url %}
+{% set oglarge = article.cover.url | ext('png') %}
 {% extends "layout.njk" %}
 {% import 'macros.njk' as macro %}
 

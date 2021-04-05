@@ -10,7 +10,7 @@ formatteron: true
 {% set title = project.title %}
 {% set description = project.description %}
 {% set keywords = ['projeto', 'programação', 'desenvolvimento'] | merge(project.tags) | join %}
-{% set oglarge = project.cover.url %}
+{% set oglarge = project.cover.url | ext('png') %}
 {% extends "layout.njk" %}
 {% import "macros.njk" as macro %}
 
