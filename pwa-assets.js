@@ -14,6 +14,7 @@ const config = {
 		[96, 96],
 		[120, 120],
 		[128, 128],
+		[180, 180],
 		[192, 192],
 		[384, 384],
 		[512, 512],
@@ -22,8 +23,7 @@ const config = {
 
 config.sizes.forEach((i) => {
 	execSync(
-		`yarn sharp	-i ${config.input} -o ${config.distFolder}${config.baseName}-${
-			i[0]
+		`yarn sharp	-i ${config.input} -o ${config.distFolder}${config.baseName}-${i[0]
 		}.${config.ext} resize ${i.join(' ')}`,
 		{
 			stdio: 'inherit',
