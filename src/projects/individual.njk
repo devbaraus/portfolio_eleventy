@@ -8,6 +8,9 @@ permalink: "projects/{{ project.title | slug }}/"
 formatteron: true
 ---
 {% set title = project.title %}
+{% set description = project.description %}
+{% set keywords = ['projeto', 'programação', 'desenvolvimento'] | merge(project.tags) | join %}
+{% set oglarge = project.cover.url %}
 {% extends "layout.njk" %}
 {% import "macros.njk" as macro %}
 

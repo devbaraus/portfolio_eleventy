@@ -7,7 +7,11 @@ pagination:
 permalink: "sides/{{ side.title | slug }}/"
 formatteron: true
 ---
+
 {% set title = side.title %}
+{% set description = side.description %}
+{% set keywords = ['projeto pessoal', 'programação', 'desenvolvimento'] | merge(side.tags) | join %}
+{% set oglarge = side.cover.url %}
 {% extends "layout.njk" %}
 {% import "macros.njk" as macro %}
 

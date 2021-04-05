@@ -45,7 +45,15 @@
         href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@700&display=swap'>
   {% block head %}{% endblock %}
   <script src="/js/main.js" defer></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3NWGJ7CJL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-N3NWGJ7CJL');
+  </script>
 </head>
 <body>
 {% include 'header.njk' %}

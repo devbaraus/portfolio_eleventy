@@ -24,8 +24,8 @@
   <!-- CODE TOWER -->
   <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
     <div class='section-header flex flex-col justify-between items-baseline text-gray-light'>
-      <h5 class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Code
-        Tower</h5>
+      <h4 class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Code
+        Tower</h4>
     </div>
     <div
       class='flex items-center justify-between gap-2 gap-x-3 mt-8 flex-wrap text-gray-light'
@@ -49,7 +49,7 @@
   <!-- SKILLS -->
   <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
     <div class='section-header flex flex-row justify-between items-center text-gray-light'>
-      <h5 id='skills' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Habilidades</h5>
+      <h4 id='skills' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Habilidades</h4>
     </div>
     <div class='card-grid'>
       {% for skill in home.skills %}
@@ -69,11 +69,11 @@
   <!-- ARTICLES -->
   <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
     <div class='section-header flex flex-row justify-between items-center text-gray-light'>
-      <h5 id='articles' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Artigos</h5>
+      <h4 id='articles' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Artigos</h4>
       <a href='/articles/' target='_self'>Ver mais</a>
     </div>
     <div class='card-grid'>
-      {% for article in articles %}
+      {% for article in articles.slice(0,6) %}
         {{ macro.card(article, 'article', '/articles/') }}
       {% endfor %}
     </div>
@@ -82,11 +82,11 @@
   <!-- PROJECTS -->
   <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
     <div class='section-header flex flex-row justify-between items-center text-gray-light'>
-      <h5 id='projects' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Projetos</h5>
+      <h4 id='projects' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Projetos</h4>
       <a href='/projects/' target='_self'>Ver mais</a>
     </div>
     <div class='card-grid'>
-      {% for project in projects %}
+      {% for project in projects.slice(0,6) %}
         {{ macro.card(project, 'project', '/projects/') }}
       {% endfor %}
     </div>
@@ -95,12 +95,12 @@
   <!-- SIDES -->
   <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
     <div class='section-header flex flex-row justify-between items-center text-gray-light'>
-      <h5 id='sides' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Projetos
-        Pessoais</h5>
+      <h4 id='sides' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Projetos
+        Pessoais</h4>
       <a href='/sides/' target='_self'>Ver mais</a>
     </div>
     <div class='card-grid'>
-      {% for side in sides %}
+      {% for side in sides.slice(0,6) %}
         {{ macro.card(side, 'side', '/sides/') }}
       {% endfor %}
     </div>
@@ -109,7 +109,7 @@
   <!-- REPOS -->
   <section class='container pt-6 relative border-t-1 border-gray-light border-opacity-10'>
     <div class='section-header flex flex-row justify-between items-center text-gray-light'>
-      <h5 id='repos' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Repositórios</h5>
+      <h4 id='repos' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Repositórios</h4>
       <a href='/repos/' target='_self'>Ver mais</a>
     </div>
     <div class='card-grid'>

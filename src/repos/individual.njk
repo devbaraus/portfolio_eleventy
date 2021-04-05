@@ -8,6 +8,8 @@ permalink: "repos/{{ repo.title | slug }}/"
 formatteron: true
 ---
 {% set title = repo.title %}
+{% set description = repo.description %}
+{% set keywords = ['repositório', 'github', 'público', 'programação', 'desenvolvimento'] | merge(repo.tags) | join %}
 {% extends "layout.njk" %}
 {% import "macros.njk" as macro %}
 

@@ -15,7 +15,7 @@ eleventyExcludeFromCollections: true
     <url>
       <loc>{{ site.url }}/articles/{{ item.title | slug }}/</loc>
       <lastmod>{{ item.updatedAt | date("yyyy-MM-dd") }}</lastmod>
-      <changefreq>{{ item.sitemapChangeFreq | default("never") }}</changefreq>
+      <changefreq>{{ item.sitemapChangeFreq | default("yearly") }}</changefreq>
       <priority>{{ item.sitemapPriority | default(0.8) }}</priority>
     </url>
   {% endfor %}
@@ -24,6 +24,22 @@ eleventyExcludeFromCollections: true
       <loc>{{ site.url }}/repos/{{ item.title | slug }}/</loc>
       <lastmod>{{ item.updatedAt | date("yyyy-MM-dd") }}</lastmod>
       <changefreq>{{ item.sitemapChangeFreq | default("weekly") }}</changefreq>
+      <priority>{{ item.sitemapPriority | default(0.3) }}</priority>
+    </url>
+  {% endfor %}
+  {% for item in projects %}
+    <url>
+      <loc>{{ site.url }}/repos/{{ item.title | slug }}/</loc>
+      <lastmod>{{ item.updatedAt | date("yyyy-MM-dd") }}</lastmod>
+      <changefreq>{{ item.sitemapChangeFreq | default("yearly") }}</changefreq>
+      <priority>{{ item.sitemapPriority | default(0.5) }}</priority>
+    </url>
+  {% endfor %}
+  {% for item in sides %}
+    <url>
+      <loc>{{ site.url }}/repos/{{ item.title | slug }}/</loc>
+      <lastmod>{{ item.updatedAt | date("yyyy-MM-dd") }}</lastmod>
+      <changefreq>{{ item.sitemapChangeFreq | default("monthly") }}</changefreq>
       <priority>{{ item.sitemapPriority | default(0.3) }}</priority>
     </url>
   {% endfor %}

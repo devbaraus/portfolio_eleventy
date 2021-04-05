@@ -8,6 +8,9 @@ permalink: "articles/{{ article.title | slug }}/"
 formatteron: true
 ---
 {% set title = article.title %}
+{% set description = article.description %}
+{% set keywords = ['artigo', 'programação', 'aprendizado', 'tutorial', 'dev', 'devcommunity', 'público'] | merge(article.tags) | join %}
+{% set oglarge = article.cover.url %}
 {% extends "layout.njk" %}
 {% import 'macros.njk' as macro %}
 

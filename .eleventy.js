@@ -13,6 +13,13 @@ module.exports = (config) => {
 	config.addFilter('markdown', (value) => {
 		return markdown.makeHtml(value)
 	})
+	config.addFilter('merge', (value1, value2) => {
+		return [...value1, ...value2]
+	})
+	config.addFilter('join', (value, separator) => {
+		return value.join(separator || ',')
+	})
+
 	config.addFilter('tag', (name) => {
 		name = name.toLowerCase()
 		if (['html', 'html5'].includes(name)) return 'HTML'

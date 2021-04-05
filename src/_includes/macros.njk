@@ -4,11 +4,11 @@
       {% if type != 'repo' %}
         <a href='{{ route }}{{ object.title | slug }}' target='_self'>
           <img
-              srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
-              src='{{ object.cover.url }}'
-              loading='lazy'
-              class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
-              alt='{{ object.cover.alternativeText }}'>
+            srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
+            src='{{ object.cover.url }}'
+            loading='lazy'
+            class='w-full h-48 object-cover transition-all duration-200 ease-in cursor-pointer hover:opacity-75'
+            alt='{{ object.cover.alternativeText }}'>
         </a>
       {% endif %}
       <a href='{{ route }}{{ object.title | slug }}/'
@@ -40,7 +40,7 @@
     <div class='card-grid grid-suggestions'>
       {{ card(suggestions[0], type, route) if suggestions[0] }}
       <div
-          class="flex justify-center flex-col items-center text-gray-light text-center px-4 h-full"
+        class="flex justify-center flex-col items-center text-gray-light text-center px-4 h-full"
       >
         <h6 class="text-2xl mb-8">
           {% if type == 'repo' %}
@@ -68,19 +68,19 @@
       <i class='devicons ds-devto text-xl'></i>
     </small>
   </a>
-  <img src='{{ profile.avatar }}' alt='' class='rounded-full h-56 w-56 ring-dark shadow mb-2 mx-auto'>
+  <img src='{{ profile.avatar }}' alt='Avatar DevBaraus Dev.to' class='rounded-full h-56 w-56 ring-dark shadow mb-2 mx-auto'>
   <a href='{{ profile.url }}'
      target='_self'
      class='font-semibold text-lg hover:text-primary transition-colors ease-in duration-200'>{{ profile.name }}</a>
   <a href='{{ profile.url }}'
      target='_self'
      class='hover:text-primary transition-colors ease-in duration-200'><small
-        class='font-light text-sm'>{{ profile.username }}</small></a>
+      class='font-light text-sm'>{{ profile.username }}</small></a>
   <hr class='border-dark border-opacity-10 my-4 px-4'>
   <p class='text-base bold'>{{ profile.bio }}</p>
   <p><small class='text-sm font-light'><a href='{{ profile.url }}' target='_self'
                                           class='hover:text-primary transition-colors ease-in duration-200'><i
-            class='feather feather-star mr-2'></i>{{ profile.reactions }}&nbsp;reações</a>
+          class='feather feather-star mr-2'></i>{{ profile.reactions }}&nbsp;reações</a>
     </small>
   </p>
   <p><a href='{{ profile.url }}' class='hover:text-primary transition-colors ease-in duration-200'
@@ -100,19 +100,19 @@
       <i class='devicons ds-github text-lg'></i>
     </small>
   </a>
-  <img src='{{ profile.avatar }}' alt='' class='rounded-full h-56 w-56 ring-dark shadow mb-2 mx-auto'>
+  <img src='{{ profile.avatar }}' alt='Avatar DevBaraus Github' class='rounded-full h-56 w-56 ring-dark shadow mb-2 mx-auto'>
   <a href='{{ profile.url }}'
      class='font-semibold text-lg hover:text-primary transition-colors ease-in duration-200'
      target='_self'>{{ profile.name }}</a>
   <a href='{{ profile.url }}' target='_self'><small
-        class='font-light text-sm hover:text-primary transition-colors ease-in duration-200'>{{ profile.username }}</small></a>
+      class='font-light text-sm hover:text-primary transition-colors ease-in duration-200'>{{ profile.username }}</small></a>
   <hr class='border-dark border-opacity-10 my-4 px-4'>
   <p class='text-base bold'>{{ profile.bio }}</p>
   <p><small class='text-sm font-light'><a href='{{ profile.url }}?tab=followers' target='_self'
                                           class='hover:text-primary transition-colors ease-in duration-200'><i
-            class='feather feather-users mr-2'></i>{{ profile.followers }}&nbsp;seguidores</a>&nbsp;·&nbsp;<a
-          href="{{ profile.url }}?tab=following"
-          class='hover:text-primary transition-colors ease-in duration-200'>{{ profile.following }}
+          class='feather feather-users mr-2'></i>{{ profile.followers }}&nbsp;seguidores</a>&nbsp;·&nbsp;<a
+        href="{{ profile.url }}?tab=following"
+        class='hover:text-primary transition-colors ease-in duration-200'>{{ profile.following }}
         &nbsp;seguindo</a></small>
   </p>
   <p><a href='{{ profile.url }}?tab=repositories' target='_self'
@@ -132,14 +132,15 @@
       <div class="glide__slides">
         {% for image in project.carousel %}
           <figure
-              class="glide__slide"
+            class="glide__slide"
           >
             <img
-                srcset='{{ image.formats.medium.url }} {{ image.formats.medium.width }}w,  {{ image.formats.small.url }} {{ image.formats.small.width }}w, {{ image.formats.thumbnail.url }} {{ image.formats.thumbnail.width }}w'
-                src='{{ image.url }}'
-                alt='{{ image.alternativeText }}'
-                style="width: 100%; height: 12rem"
-                class="object-cover"
+              srcset='{{ image.formats.medium.url }} {{ image.formats.medium.width }}w,  {{ image.formats.small.url }} {{ image.formats.small.width }}w, {{ image.formats.thumbnail.url }} {{ image.formats.thumbnail.width }}w'
+              src='{{ image.url }}'
+              alt='{{ image.alternativeText }}'
+              style="width: 100%; height: 12rem"
+              onclick='return ovrly.open(this);'
+              class="object-cover"
             />
             <figcaption class='mt-1 text-center text-sm'>{{ image.alternativeText }}</figcaption>
           </figure>
@@ -184,21 +185,21 @@
         <div class='container-fluid flex items-center justify-center h-full'>
           {% if (type == 'article') or (type == 'project') %}
             <img
-                {% if type == 'article' %}
-                  srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
-                {% endif %}
-                src='{{ object.cover.url }}' class='object-cover h-full {{ 'w-full' if type == 'project' }}' alt=''>
+              {% if type == 'article' %}
+                srcset='{{ object.cover.formats.medium.url }} {{ object.cover.formats.medium.width }}w,  {{ object.cover.formats.small.url }} {{ object.cover.formats.small.width }}w, {{ object.cover.formats.thumbnail.url }} {{ object.cover.formats.thumbnail.width }}w'
+              {% endif %}
+              src='{{ object.cover.url }}' class='object-cover h-full {{ 'w-full' if type == 'project' }}' alt=''>
           {% elseif type == 'side' %}
             <img
-                src='{{ object.logo }}' class='object-object-contain h-32 px-8' alt='Logo {{ object.title }}'>
+              src='{{ object.logo }}' class='object-object-contain h-32 px-8' alt='Logo {{ object.title }}'>
           {% endif %}
         </div>
       </div>
     {% endif %}
     <div class='container text-dark pt-2 pb-8'>
-      <div class='md:flex justify-between items-baseline'>
+      <div class='md:flex justify-between items-baseline pb-8'>
         <div class='md:w-8/12'>
-          <h2 class='text-3xl md:text-4xl font-bold break-words'>{{ object.title }}</h2>
+          <h1 class='text-3xl md:text-4xl font-bold break-words'>{{ object.title }}</h1>
           <span class='break-words'>
             {{ object.description | markdown | safe }}
           </span>
@@ -209,7 +210,7 @@
           </span>
               <span class="opacity-50 text-primary mx-2">|</span>
               <span
-                  title='Aproximadamente {{ object.time }} minutos de leitura'>
+                title='Aproximadamente {{ object.time }} minutos de leitura'>
             <i class='feather feather-book-open'></i>&nbsp;{{ object.time }}&nbsp;min
           </span>
             {% elseif type == 'repo' %}
@@ -222,13 +223,13 @@
             {% endif %}
             {% for tag in object.tags %}
               <i
-                  class="text-2xl devicons ds-{{ tag }} mr-2" title='{{ tag }}'
+                class="text-2xl devicons ds-{{ tag }} mr-2" title='{{ tag }}'
               ></i>
             {% endfor %}
           </div>
         </div>
         <div
-            class="w-full mt-8 md:m-0 md:w-4/12 md:flex md:justify-end"
+          class="w-full mt-8 md:m-0 md:w-4/12 md:flex md:justify-end"
         >
           {% if object.url %}
             <a href='{{ object.url }}' target='_blank' rel='nofollow'

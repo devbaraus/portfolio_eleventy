@@ -9,6 +9,9 @@ import './main.pcss'
 import FlashMessage from './modules/flashmessage'
 import './modules/glide'
 import './modules/scrollreveal'
+import ovrly from './modules/ovrly'
+
+window.ovrly = ovrly
 
 ScrollReveal.reveal('.reveal', {
 	duration: 200,
