@@ -31,6 +31,8 @@ if (document.querySelector('.glide')) {
 const flashMessage = new FlashMessage('#copy-message')
 
 document.querySelectorAll('.prose pre').forEach((el) => {
+	el.title = 'Clique para copiar 📝'
+
 	el.addEventListener('click', () => {
 		navigator.clipboard.writeText(el.textContent)
 		flashMessage.open('Código copiado!', true)
