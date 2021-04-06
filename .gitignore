@@ -7,4 +7,5 @@ node_modules/
 
 # Local Netlify folder
 .netlify
+
 src/_data/*.json
