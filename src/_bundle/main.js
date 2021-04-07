@@ -39,7 +39,7 @@ document.querySelectorAll('.prose pre').forEach((el) => {
 	})
 })
 
-document.querySelector('#form-contact').addEventListener('submit', ($event) => {
+document.querySelector('#contact').addEventListener('submit', ($event) => {
 	event.preventDefault()
 	const formData = new FormData(event.target)
 
