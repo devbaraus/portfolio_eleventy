@@ -50,7 +50,7 @@ document.querySelector('#contact').addEventListener('submit', ($event) => {
 			'Accept': 'application/json'
 		}
 	})
-		.then((response) => flashMessage.open('Email enviado!', true))
+		.then((response) => { flashMessage.open('Email enviado!', true); document.querySelector('#contact').reset(); })
 		.catch((error) => flashMessage.open('Email não enviado!', false))
 })
 

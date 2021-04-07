@@ -13,7 +13,7 @@
       {% endif %}
       <a href='{{ route }}{{ object.title | slug }}/'
          target='_self'
-         class='p-4 w-full flex justify-between p-4 bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
+         class='p-4 w-full flex justify-between bg-primary transition-all duration-200 ease-in cursor-pointer hover:opacity-75'>
         <p>
           {{ object.title }}
         </p>
@@ -168,7 +168,7 @@
       <p class='font-light text-xs'>Recursos:</p>
       {% for link in project.links %}
         <a href='{{ link.url }}'
-           class='bg-dark hover:bg-primary px-4 py-2 text-gray-light text-sm px-1 mt-2'>
+           class='bg-dark hover:bg-primary px-4 py-2 text-gray-light text-sm mt-2'>
           <i class='devicons ds-{{ link.tag }} mr-1'></i> {{ link.text | tag }}
         </a>
       {% endfor %}
@@ -249,7 +249,7 @@
         <div class='md:w-8/12 2xl:w-9/12 prose max-w-none w-full'>
           {{ object.content | markdown | safe }}
         </div>
-        <div class='w-full mt-8 md:m-0 md:w-4/12 2xl:w-3/12 sticky h-full flex top-16 flex flex-col relative md:pl-4'>
+        <div class='w-full mt-8 md:m-0 md:w-4/12 2xl:w-3/12 sticky h-full flex top-16 flex-col md:pl-4'>
           {% if type == 'repo' %}
             {{ stickyGithub(profile) }}
           {% elseif type == 'article' %}
