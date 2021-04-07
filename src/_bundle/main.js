@@ -46,6 +46,9 @@ document.querySelector('#form-contact').addEventListener('submit', ($event) => {
 	fetch('https://formspree.io/f/mwkrddvn', {
 		method: 'POST',
 		body: formData,
+		headers: {
+			'Accept': 'application/json'
+		}
 	})
 		.then((response) => flashMessage.open('Email enviado!', true))
 		.catch((error) => flashMessage.open('Email não enviado!', false))
