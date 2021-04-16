@@ -4,7 +4,7 @@ const eleventyPackage = require('@11ty/eleventy/package.json')
 
 const env = process.env
 
-const URL = env.URL || 'http://localhost:5000'
+const URL = env.URL || 'http://localhost:8080'
 
 module.exports = function () {
 	return {

@@ -12,6 +12,7 @@ formatteron: true
 {% set description = side.description %}
 {% set keywords = ['projeto pessoal', 'programação', 'desenvolvimento'] | merge(side.tags) | join %}
 {% set oglarge = side.cover.url | ext('png') %}
+{% set canonical = side.title | slug | canonical('sides') %}
 {% extends "layout.njk" %}
 {% import "macros.njk" as macro %}
 

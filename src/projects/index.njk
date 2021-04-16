@@ -7,7 +7,11 @@ permalink: 'projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber 
 formatteron: true
 ---
 
-{% set title = 'Desenvolvedor Web Full Stack' %}
+{% set title = 'Projetos Reais' %}
+{% set description = 'Listagem dos projetos reais em que participei do desenvolvimento' %}
+{% set keywords = ['projetos', 'reais', 'participação', 'programação', 'desenvolvimento'] | join %}
+{% set canonical = 'projects' | canonical %}
+
 {% extends "layout.njk" %}
 {% import 'macros.njk' as macro %}
 

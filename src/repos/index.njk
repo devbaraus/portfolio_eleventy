@@ -7,14 +7,18 @@ permalink: 'repos/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1
 formatteron: true
 ---
 
-{% set title = 'Desenvolvedor Web Full Stack' %}
+{% set title = 'Repositórios GitHub' %}
+{% set description = 'Listagem dos meus repositório públicos hospedados no GitHub' %}
+{% set keywords = ['repositórios', 'publicos', 'github', 'programação', 'desenvolvimento'] | join %}
+{% set canonical = 'repos' | canonical %}
+
 {% extends "layout.njk" %}
 {% import 'macros.njk' as macro %}
 
 {% block body %}
   <section class='container mt-2 mb-12 relative'>
     <div class='flex flex-col text-light'>
-      <h1  class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Repositórios</h1>
+      <h1 class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Repositórios</h1>
       <div
         class="flex flex-wrap justify-between lg:items-center w-full flex-col lg:flex-row"
       >

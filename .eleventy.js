@@ -13,6 +13,10 @@ module.exports = (config) => {
 	config.addFilter('markdown', (value) => {
 		return markdown.makeHtml(value)
 	})
+	config.addFilter('canonical', (value, level = '') => {
+		const { url } = require('./src/_data/site')()
+		return `${url}/${!!level ? level + '/' : ''}${value}/`
+	})
 	config.addFilter('merge', (value1, value2) => {
 		return [...value1, ...value2]
 	})

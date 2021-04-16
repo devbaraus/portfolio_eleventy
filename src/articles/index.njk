@@ -7,7 +7,11 @@ permalink: 'articles/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber 
 formatteron: true
 ---
 
-{% set title = 'Desenvolvedor Web Full Stack' %}
+{% set title = 'Artigos Publicados' %}
+{% set description = 'Listagem dos artigos publicados por mim, documentando algum projeto.' %}
+{% set keywords = ['artigo', 'ensino', 'publicado', 'programação', 'desenvolvimento'] | join %}
+{% set canonical = 'articles' | canonical %}
+
 {% extends "layout.njk" %}
 {% import 'macros.njk' as macro %}
 

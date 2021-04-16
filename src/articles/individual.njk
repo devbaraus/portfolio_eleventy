@@ -11,6 +11,8 @@ formatteron: true
 {% set description = article.description %}
 {% set keywords = ['artigo', 'programação', 'aprendizado', 'tutorial', 'dev', 'devcommunity', 'público'] | merge(article.tags) | join %}
 {% set oglarge = article.cover.url | ext('png') %}
+{% set canonical = article.title | slug | canonical('articles') %}
+
 {% extends "layout.njk" %}
 {% import 'macros.njk' as macro %}
 

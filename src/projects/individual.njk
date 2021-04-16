@@ -11,6 +11,8 @@ formatteron: true
 {% set description = project.description %}
 {% set keywords = ['projeto', 'programação', 'desenvolvimento'] | merge(project.tags) | join %}
 {% set oglarge = project.cover.url | ext('png') %}
+{% set canonical = project.title | slug | canonical('projects') %}
+
 {% extends "layout.njk" %}
 {% import "macros.njk" as macro %}
 
