@@ -1,7 +1,7 @@
 <header>
-  <div class="fixed h-12 bg-gray-light w-screen z-10">
+  <div class="fixed h-12 bg-light w-screen z-10">
     <div class='py-2 flex justify-between items-center w-full container pb-3'>
-      <div class='absolute flex h-12 w-screen bg-gray-light z-20 md:z-0 top-0 left-0'></div>
+      <div class='absolute flex h-12 w-screen bg-light z-20 md:z-0 top-0 left-0'></div>
       <div style="height:1px;" class='absolute flex top-12 w-screen bg-dark bg-opacity-10 z-20 md:z-0 left-0'>
         <div id='scrolled' class='h-full bg-primary'></div>
       </div>
@@ -14,15 +14,14 @@
       <input id='nav-collapse' type='checkbox' aria-hidden='true' class='hidden'>
       <label for='nav-collapse' class='text-2xl block md:hidden z-20'></label>
       <nav id='navbar' class='fixed pt-12 left-0 z-10  h-screen w-screen
-      bg-gray-light md:p-0 md:static md:h-full md:w-full md:flex-initial md:m-0 '>
+      bg-light md:p-0 md:static md:h-full md:w-full md:flex-initial md:m-0 '>
         <ul
-          class="flex flex-col h-full w-full overflow-y-auto md:overflow-hidden justify-center md:flex-row items-center md:justify-end font-bold">
+            class="flex flex-col h-full w-full overflow-y-auto md:overflow-hidden justify-center md:flex-row items-center md:justify-end font-bold">
           {% for link in navigation %}
             <li class='{{ 'mb-8 md:mb-0 md:mr-4' if link != navigation[navigation.length - 1] }}'>
               <a href="{{ link.route }}"
                  target='_self'
-                 class="{% if link.button %} text-gray-light py-1 px-2 bg-dark {% endif %}  transition-colors
-                 text-3xl md:text-base duration-200 ease-in hover:text-primary">
+                 class="transition-colors text-3xl md:text-base duration-200 ease-in {% if link.button %} py-1 px-2  h-full bg-dark text-light col-start-2 hover:bg-primary hover:text-light {% else %} hover:text-primary  {% endif %}  ">
                 {{ link.name }}
               </a>
             </li>

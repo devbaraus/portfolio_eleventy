@@ -6,27 +6,27 @@ permalink: 404.html
 {% import 'macros.njk' as macro %}
 
 {% block body %}
-  <div class='text-gray-light container mx-auto text-center -mb-12 z-0'>
+  <div class='text-light container mx-auto text-center -mb-12 z-0'>
     <div class='py-12 z-50 max-w-3xl mx-auto'>
       <h1 class='text-9xl font-bold font-ubuntu mb-4'>404</h1>
       <h2 class='text-5xl text-center mb-4'>Página não encontrada...</h2>
       <h3 class='text-3xl text-left'>Talvez você queira saber um pouco mais sobre mim!</h3>
-      <hr class='my-8 border-gray-light border-opacity-10'>
+      <hr class='my-8 border-light border-opacity-10'>
       <p class='text-center'>Estas são algumas das minhas redes sociais.</p>
       <div
         class='flex items-center justify-between gap-y-2 gap-x-3 mt-8 flex-wrap'
       >
         {% for social in home.socials %}
           <a href='{{ social.route }}' target='{{ "_blank" if social.external else "_self" }}' rel='nofollow noreferrer'
-             class='bg-dark px-4 py-2 rounded-one hover:rounded-lg text-gray-light mr-2 transition-all duration-200 ease-in cursor-pointer hover:text-primary'>
+             class='bg-dark px-4 py-2 rounded-one hover:rounded-lg text-light mr-2 transition-all duration-200 ease-in cursor-pointer hover:text-primary'>
             <i class='{{ social.icon }} mr-1'></i> {{ social.name }}
           </a>
         {% endfor %}
       </div>
-      <hr class='my-8 border-gray-light border-opacity-10'>
+      <hr class='my-8 border-light border-opacity-10'>
       {% for repo in repos %}
         {% if repo.title == 'devbaraus' %}
-          <div class='prose text-gray-light text-left w-full max-w-none'>
+          <div class='prose text-light text-left w-full max-w-none'>
             {{ repo.content | markdown | safe }}
           </div>
         {% endif %}

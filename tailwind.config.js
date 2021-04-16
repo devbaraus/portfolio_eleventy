@@ -7,10 +7,8 @@ module.exports = {
 		},
 		colors: {
 			dark: '#31263e',
-			light: '#44355b',
-			gray: {
-				light: '#f0f0f7',
-			},
+			medium: '#44355b',
+			light: '#f0f0f7',
 			primary: '#ee5622',
 		},
 		extend: {

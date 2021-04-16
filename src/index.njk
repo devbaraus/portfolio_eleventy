@@ -14,7 +14,7 @@
     >
       {% for social in home.socials %}
         <a href='{{ social.route }}' target='{{ "_blank" if social.external else "_self" }}' rel='nofollow noreferrer'
-           class='bg-dark px-4 py-2 rounded-one hover:rounded-lg text-gray-light mr-2 transition-all duration-200 ease-in cursor-pointer hover:text-primary'>
+           class='bg-dark px-4 py-2 rounded-one hover:rounded-lg text-light mr-2 transition-all duration-200 ease-in cursor-pointer hover:text-primary'>
           <i class='{{ social.icon }} mr-1'></i> {{ social.name }}
         </a>
       {% endfor %}
@@ -22,13 +22,13 @@
   </section>
 
   <!-- CODE TOWER -->
-  <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-    <div class='section-header flex flex-col justify-between items-baseline text-gray-light'>
+  <section class='container pt-6 mb-12 relative border-t-1 border-light border-opacity-10'>
+    <div class='section-header flex flex-col justify-between items-baseline text-light'>
       <h4 class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Code
         Tower</h4>
     </div>
     <div
-      class='flex items-center justify-between gap-2 gap-x-3 mt-8 flex-wrap text-gray-light'
+      class='flex items-center justify-between gap-2 gap-x-3 mt-8 flex-wrap text-light'
     >
       <p>
         A
@@ -47,13 +47,13 @@
   </section>
 
   <!-- SKILLS -->
-  <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-    <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+  <section class='container pt-6 mb-12 relative border-t-1 border-light border-opacity-10'>
+    <div class='section-header flex flex-row justify-between items-center text-light'>
       <h4 id='skills' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Habilidades</h4>
     </div>
     <div class='card-grid'>
       {% for skill in home.skills %}
-        <article class='bg-light pb-4 text-gray-light shadow-lg reveal reveal-hidden'>
+        <article class='bg-medium pb-4 text-light shadow-lg reveal reveal-hidden'>
           <div class='p-4'>
             <i title='{{ skill.icon.title }}' class='{{ skill.icon.class }} text-4xl text-primary'></i>
             <p class='text-xl'>{{ skill.label }}</p>
@@ -67,8 +67,8 @@
   </section>
 
   <!-- ARTICLES -->
-  <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-    <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+  <section class='container pt-6 mb-12 relative border-t-1 border-light border-opacity-10'>
+    <div class='section-header flex flex-row justify-between items-center text-light'>
       <h4 id='articles' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Artigos</h4>
       <a href='/articles/' target='_self'>Ver mais</a>
     </div>
@@ -80,8 +80,8 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-    <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+  <section class='container pt-6 mb-12 relative border-t-1 border-light border-opacity-10'>
+    <div class='section-header flex flex-row justify-between items-center text-light'>
       <h4 id='projects' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Projetos</h4>
       <a href='/projects/' target='_self'>Ver mais</a>
     </div>
@@ -93,8 +93,8 @@
   </section>
 
   <!-- SIDES -->
-  <section class='container pt-6 mb-12 relative border-t-1 border-gray-light border-opacity-10'>
-    <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+  <section class='container pt-6 mb-12 relative border-t-1 border-light border-opacity-10'>
+    <div class='section-header flex flex-row justify-between items-center text-light'>
       <h4 id='sides' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Projetos
         Pessoais</h4>
       <a href='/sides/' target='_self'>Ver mais</a>
@@ -107,8 +107,8 @@
   </section>
 
   <!-- REPOS -->
-  <section class='container pt-6 relative border-t-1 border-gray-light border-opacity-10'>
-    <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+  <section class='container pt-6 relative border-t-1 border-light border-opacity-10'>
+    <div class='section-header flex flex-row justify-between items-center text-light'>
       <h4 id='repos' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Repositórios</h4>
       <a href='/repos/' target='_self'>Ver mais</a>
     </div>

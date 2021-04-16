@@ -1,5 +1,5 @@
 {% macro card(object, type, route) %}
-  <article class='bg-light text-gray-light shadow-lg relative flex flex-col justify-between reveal reveal-hidden'>
+  <article class='bg-medium text-light shadow-lg relative flex flex-col justify-between reveal reveal-hidden'>
     <div class='relative p-0'>
       {% if type != 'repo' %}
         <a href='{{ route }}{{ object.title | slug }}' target='_self'>
@@ -33,14 +33,14 @@
 {% endmacro %}
 
 {% macro suggestions(suggestions, type, route) %}
-  <section class='container pt-6 relative border-t-1 border-gray-light border-opacity-10'>
-    <div class='section-header flex flex-row justify-between items-center text-gray-light'>
+  <section class='container pt-6 relative border-t-1 border-light border-opacity-10'>
+    <div class='section-header flex flex-row justify-between items-center text-light'>
       <h5 id='articles' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Sugestões</h5>
     </div>
     <div class='card-grid grid-suggestions'>
       {{ card(suggestions[0], type, route) if suggestions[0] }}
       <div
-        class="flex justify-center flex-col items-center text-gray-light text-center px-4 h-full"
+        class="flex justify-center flex-col items-center text-light text-center px-4 h-full"
       >
         <h6 class="text-2xl mb-8">
           {% if type == 'repo' %}
@@ -50,7 +50,7 @@
           {% endif %}
         </h6>
         <a href='{{ route }}' target='_blank' rel='nofollow'
-           class='bg-dark px-4 py-2 text-gray-light hover:text-primary text-xl border-1 border-gray-light hover:border-primary'>
+           class='bg-dark px-4 py-2 text-light hover:text-primary text-xl border-1 border-light hover:border-primary'>
           <i class='feather feather-compass mr-2'></i> Ver mais
         </a>
       </div>
@@ -168,7 +168,7 @@
       <p class='font-light text-xs'>Recursos:</p>
       {% for link in project.links %}
         <a href='{{ link.url }}'
-           class='bg-dark hover:bg-primary px-4 py-2 text-gray-light text-sm mt-2'>
+           class='bg-dark hover:bg-primary px-4 py-2 text-light text-sm mt-2'>
           <i class='devicons ds-{{ link.tag }} mr-1'></i> {{ link.text | tag }}
         </a>
       {% endfor %}
@@ -179,7 +179,7 @@
 {% endmacro %}
 
 {% macro individual(object, type, profile) %}
-  <div class='bg-gray-light'>
+  <div class='bg-light'>
     {% if type != 'repo' %}
       <div class='bg-dark {{ 'h-64' if type == 'article' else 'h-48' }}'>
         <div class='container-fluid flex items-center justify-center h-full'>
@@ -233,7 +233,7 @@
         >
           {% if object.url %}
             <a href='{{ object.url }}' target='_blank' rel='nofollow'
-               class='bg-dark px-4 py-2 text-gray-light hover:text-primary'>
+               class='bg-dark px-4 py-2 text-light hover:text-primary'>
               {% if type == 'article' %}
                 <i class='devicons ds-devto mr-1'></i>Acessar artigo
               {% elseif (type == 'side') or (type == 'project') %}

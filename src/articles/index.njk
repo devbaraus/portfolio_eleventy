@@ -13,7 +13,7 @@ formatteron: true
 
 {% block body %}
   <section class='container mt-2 mb-12 relative'>
-    <div class='flex flex-col text-gray-light'>
+    <div class='flex flex-col text-light'>
       <h1 class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Artigos</h1>
       <div
         class="flex flex-wrap justify-between lg:items-center w-full flex-col lg:flex-row"
@@ -32,7 +32,7 @@ formatteron: true
     </div>
   </section>
   <nav class='container'>
-    <ul class='list-none flex items-center justify-center text-gray-light w-full' aria-labelledby='navigation'
+    <ul class='list-none flex items-center justify-center text-light w-full' aria-labelledby='navigation'
         role='list'>
       <li aria-hidden='true' class='{{ 'invisible' if pagination.pageNumber == 0 }}'>
         <a href='{{ pagination.page.previous }}' target='_self'>
