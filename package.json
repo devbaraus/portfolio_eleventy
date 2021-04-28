@@ -20,7 +20,8 @@
 		"clean": "rm -rf dist",
 		"dev": "cross-env NODE_ENV=development  npm-run-all clean request:* build:eleventy build:webpack -p dev:*",
 		"dev:eleventy": "eleventy --serve --quiet",
-		"dev:webpack": "webpack --watch"
+		"dev:webpack": "webpack --watch",
+		"start": "serve dist"
 	},
 	"repository": {
 		"type": "git",
@@ -44,6 +45,7 @@
 		"json-stringify-safe": "^5.0.1",
 		"remove": "^0.1.5",
 		"scrollreveal": "^4.0.9",
+		"serve": "^11.3.2",
 		"sharp-cli": "^1.15.0",
 		"webfonts-loader": "^7.2.0",
 		"workbox-cli": "^6.1.2"
