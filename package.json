@@ -40,7 +40,7 @@
 	"homepage": "https://github.com/mattwaler/tea-stack#readme",
 	"dependencies": {
 		"@glidejs/glide": "^3.4.1",
-		"axios": "^0.21.1",
+		"axios": "^0.21.2",
 		"graphql": "^15.5.0",
 		"json-stringify-safe": "^5.0.1",
 		"remove": "^0.1.5",
