@@ -1,5 +1,6 @@
 module.exports = {
 	darkMode: false,
+	content: ["/dist/**/*.{html,njk}"],
 	theme: {
 		container: {
 			center: true,
