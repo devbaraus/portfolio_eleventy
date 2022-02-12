@@ -1,4 +1,4 @@
-const { writeDataFile } = require('./requests')
+const { writeDataStream } = require('./requests')
 const { makeSuggestions } = require('./requests')
 const { client, gql } = require('../../graphql')
 
@@ -34,6 +34,8 @@ async function fetchData() {
 			return i
 		})
 
+		repos.map(i => console.log('Repo fetched:', i.title))
+
 		return repos
 	} catch (e) {
 		console.log(e)
@@ -41,5 +43,5 @@ async function fetchData() {
 }
 
 fetchData().then((res) => {
-	writeDataFile('../_data/repos.json', res)
+	writeDataStream('../_data/repos.json', res)
 })

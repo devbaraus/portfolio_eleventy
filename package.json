@@ -17,7 +17,7 @@
 		"request:sides": "node ./src/_requests/sides.js",
 		"request:projects": "node ./src/_requests/projects.js",
 		"request:profiles": "node ./src/_requests/profiles.js",
-		"clean": "rm -rf dist",
+		"clean": "rm -rf dist && rm -rf ./src/_data/*.json",
 		"dev": "cross-env NODE_ENV=development  npm-run-all clean request:* build:eleventy build:webpack -p dev:*",
 		"dev:eleventy": "eleventy --serve --quiet",
 		"dev:webpack": "webpack --watch",

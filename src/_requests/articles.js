@@ -1,7 +1,7 @@
 const {
 	makeSuggestions,
 	changeImageExtension,
-	writeDataFile,
+	writeDataStream,
 } = require('./requests')
 const { client, gql } = require('../../graphql')
 
@@ -42,6 +42,8 @@ async function fetchData() {
 			return i
 		})
 
+		articles.map(i => console.log('Article fetched:', i.title))
+
 		return articles
 	} catch (e) {
 		console.log(e)
@@ -50,5 +52,5 @@ async function fetchData() {
 }
 
 fetchData().then((res) => {
-	writeDataFile('../_data/articles.json', res)
+	writeDataStream('../_data/articles.json', res)
 })

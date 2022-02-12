@@ -1,5 +1,5 @@
 const _ = require('lodash')
-const { writeFileSync } = require('fs')
+const { writeFileSync, createWriteStream } = require('fs')
 const stringify = require('json-stringify-safe')
 const { resolve } = require('path')
 
@@ -31,8 +31,25 @@ function writeDataFile(path, data) {
 	writeFileSync(resolve(__dirname, path), stringify(data))
 }
 
+function writeDataStream(path, data) {
+	writeFileSync(resolve(__dirname, path), '', { encoding: 'utf8' })
+	const writer = createWriteStream(resolve(__dirname, path));
+	writer.write('[\n');
+	data.map((item, index) => {
+		writer.write(stringify(item));
+		if (index !== data.length - 1) {
+			writer.write(',\n');
+		}
+	})
+	writer.write('\n]');
+	writer.on('error', (err) => {
+		console.log(err)
+	})
+}
+
 module.exports = {
 	changeImageExtension,
 	makeSuggestions,
 	writeDataFile,
+	writeDataStream,
 }

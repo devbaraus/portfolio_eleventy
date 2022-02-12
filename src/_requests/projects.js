@@ -1,4 +1,4 @@
-const { writeDataFile } = require('./requests')
+const { writeDataStream } = require('./requests')
 const { client, gql } = require('../../graphql')
 const { makeSuggestions, changeImageExtension } = require('.//requests')
 
@@ -54,6 +54,8 @@ async function fetchData() {
 			return i
 		})
 
+		projects.map(i => console.log('Project fetched:', i.title))
+
 		return projects
 	} catch (e) {
 		console.log(e)
@@ -61,5 +63,5 @@ async function fetchData() {
 }
 
 fetchData().then((res) => {
-	writeDataFile('../_data/projects.json', res)
+	writeDataStream('../_data/projects.json', res)
 })
