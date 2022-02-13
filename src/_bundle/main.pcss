@@ -19,9 +19,18 @@
 	--color-primary: #ee5622;
 }
 
+.unselectable {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
 *,
 *:focus {
 	outline: none !important;
+	@apply unselectable;
 }
 
 html,

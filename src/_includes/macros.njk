@@ -33,7 +33,7 @@
 {% endmacro %}
 
 {% macro suggestions(suggestions, type, route) %}
-  <section class='container pt-6 relative border-t-1 border-light border-opacity-10'>
+  <section class='container pt-6 relative border-t-1 border-light border-opacity-10 bg-dark'>
     <div class='section-header flex flex-row justify-between items-center text-light'>
       <h5 id='articles' class='font-ubuntu font-bold text-3xl leading-loose relative text-primary'>Sugestões</h5>
     </div>
@@ -184,7 +184,7 @@
 {% endmacro %}
 
 {% macro individual(object, type, profile) %}
-  <div>
+  <div class="bg-light dark:bg-dark">
     {% if type != 'repo' %}
       <div class='bg-dark {{ 'h-64' if type == 'article' else 'h-48' }}'>
         <div class='container-fluid flex items-center justify-center h-full'>

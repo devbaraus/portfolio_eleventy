@@ -41,7 +41,7 @@ document.querySelectorAll('.prose pre').forEach((el) => {
 
 	el.addEventListener('click', () => {
 		navigator.clipboard.writeText(el.textContent)
-		flashMessage.open('Código copiado!', true)
+		flashMessage.open('Código copiado!', true, `<i class='feather feather-clipboard text-xl mr-1'></i>`)
 	})
 })
 
