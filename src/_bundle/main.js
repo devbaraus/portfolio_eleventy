@@ -83,23 +83,9 @@ function changeTheme() {
 }
 
 window.addEventListener('click', (e) => {
-	e.detail >= 2 && changeTheme();
+	// DOUBLE CLICK
+	e.detail == 2 && changeTheme();
 })
-
-var tapedTwice = false;
-
-function tapHandler(event) {
-	if (!tapedTwice) {
-		tapedTwice = true;
-		setTimeout(function () { tapedTwice = false; }, 300);
-		return false;
-	}
-	event.preventDefault();
-	//action on double tap goes below
-	changeTheme();
-}
-
-window.addEventListener('touchstart', tapHandler)
 
 function suggestTheme() {
 	if (!localStorage.getItem('theme')) {
