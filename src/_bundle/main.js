@@ -111,9 +111,20 @@ function suggestTheme() {
 	}
 }
 
+function checkTheme() {
+	const currentTheme = localStorage.getItem('theme')
+	if (currentTheme == 'light' && document.querySelector('html').classList.contains('dark')) {
+		document.querySelector('html').classList.remove('dark')
+	} else if (currentTheme == 'dark' && !document.querySelector('html').classList.contains('dark')) {
+		document.querySelector('html').classList.add('dark')
+	}
+}
+
 window.onload = () => {
 	suggestTheme()
 }
+
+checkTheme()
 
 if ('serviceWorker' in navigator) {
 	navigator.serviceWorker
