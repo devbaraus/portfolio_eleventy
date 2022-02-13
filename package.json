@@ -13,7 +13,6 @@
 		"build:pwa": "node pwa-assets.js",
 		"build:workbox": "workbox generateSW workbox.config.js",
 		"request:articles": "node ./src/_requests/articles.js",
-		"request:repos": "node ./src/_requests/repos.js",
 		"request:sides": "node ./src/_requests/sides.js",
 		"request:projects": "node ./src/_requests/projects.js",
 		"request:profiles": "node ./src/_requests/profiles.js",

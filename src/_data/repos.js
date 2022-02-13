@@ -1,5 +1,5 @@
-const { writeDataStream } = require('./requests')
-const { makeSuggestions } = require('./requests')
+const { writeDataStream } = require('../_requests/requests')
+const { makeSuggestions } = require('../_requests/requests')
 const { client, gql } = require('../../graphql')
 
 module.exports = async function () {
