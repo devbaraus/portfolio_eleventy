@@ -7,20 +7,20 @@
 	},
 	"main": "index.js",
 	"scripts": {
-		"build": "cross-env NODE_ENV=production npm-run-all clean request:* build:*",
+		"build": "cross-env NODE_ENV=production npm-run-all clear:* request:* build:*",
 		"build:eleventy": "eleventy",
 		"build:webpack": "webpack",
 		"build:pwa": "node pwa-assets.js",
 		"build:workbox": "workbox generateSW workbox.config.js",
-		"request:articles": "node ./src/_requests/articles.js",
-		"request:sides": "node ./src/_requests/sides.js",
-		"request:projects": "node ./src/_requests/projects.js",
+		"request:load": "node ./src/_requests/load.js",
 		"request:profiles": "node ./src/_requests/profiles.js",
-		"clean": "rm -rf dist && rm -rf ./src/_data/*.json",
-		"dev": "cross-env NODE_ENV=development  npm-run-all clean request:* build:eleventy build:webpack -p dev:*",
+		"clear:basis": "rm -rf dist && rm -rf ./src/_data/*.json",
+		"clear:js": "rm -rf ./src/_data/repos.js && rm -rf ./src/_data/articles.js && rm -rf ./src/_data/projects.js && rm -rf ./src/_data/sides.js",
+		"dev": "cross-env NODE_ENV=development  npm-run-all clear:* request:* build:eleventy build:webpack -p dev:*",
 		"dev:eleventy": "eleventy --serve --quiet",
 		"dev:webpack": "webpack --watch",
-		"start": "serve dist"
+		"start": "serve dist",
+		"prepare": "husky install"
 	},
 	"repository": {
 		"type": "git",
@@ -76,6 +76,7 @@
 		"style-loader": "^2.0.0",
 		"tailwindcss": "3.0.11",
 		"webpack": "^5.11.0",
-		"webpack-cli": "^4.2.0"
+		"webpack-cli": "^4.2.0",
+		"husky": "^7.0.0"
 	}
 }

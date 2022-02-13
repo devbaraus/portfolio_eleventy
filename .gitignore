@@ -8,4 +8,8 @@ node_modules/
 # Local Netlify folder
 .netlify
 
-src/_data/*.json
+/src/_data/*.json
+/src/_data/repos.js
+/src/_data/articles.js
+/src/_data/projects.js
+/src/_data/sides.js

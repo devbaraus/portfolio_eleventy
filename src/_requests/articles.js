@@ -1,11 +1,16 @@
-const {
-	makeSuggestions,
-	changeImageExtension,
-	writeDataStream,
-} = require('./requests')
+let makeSuggestions, changeImageExtension;
+
+if (__dirname.endsWith('_requests')) {
+	makeSuggestions = require('./requests').makeSuggestions
+	changeImageExtension = require('./requests').changeImageExtension
+} else {
+	makeSuggestions = require('../_requests/requests').makeSuggestions
+	changeImageExtension = require('../_requests/requests').changeImageExtension
+}
+
 const { client, gql } = require('../../graphql')
 
-async function fetchData() {
+module.exports = async function () {
 	try {
 		let { articles } = await client.request(gql`
 			query {
@@ -50,7 +55,3 @@ async function fetchData() {
 		return {}
 	}
 }
-
-fetchData().then((res) => {
-	writeDataStream('../_data/articles.json', res)
-})

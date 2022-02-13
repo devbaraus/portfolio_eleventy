@@ -63,6 +63,23 @@ window.addEventListener('scroll', () => {
 	document.querySelector('#scrolled').style.width = scrolled + '%'
 })
 
+function changeTheme() {
+	const currentTheme = localStorage.getItem('theme')
+	const nextTheme = currentTheme === 'light' ? 'dark' : 'light'
+	const statusIcon = nextTheme === 'light' ? 'sun' : 'moon'
+	flashMessage.open(`Modo ${nextTheme === 'light' ? 'diurno' : 'noturno'}`, true, `<i class='feather feather-${statusIcon} text-xl mr-1'></i>`)
+	if (nextTheme == 'light' && document.querySelector('html').classList.contains('dark')) {
+		document.querySelector('html').classList.remove('dark')
+	} else {
+		document.querySelector('html').classList.add('dark')
+	}
+	localStorage.setItem('theme', nextTheme)
+}
+
+window.addEventListener('keypress', (e) => {
+	(e.ctrlKey && e.code == 'Enter') && changeTheme()
+})
+
 if ('serviceWorker' in navigator) {
 	navigator.serviceWorker
 		.register('/sw.js')

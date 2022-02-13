@@ -13,147 +13,147 @@
 @import './styles/hero.pcss';
 
 :root {
-  --color-light: #f0f0f7;
-  --color-dark: #31263e;
-  --color-medium: #44355b;
-  --color-primary: #ee5622;
+	--color-light: #f0f0f7;
+	--color-dark: #31263e;
+	--color-medium: #44355b;
+	--color-primary: #ee5622;
 }
 
 *,
 *:focus {
-  outline: none !important;
+	outline: none !important;
 }
 
 html,
 body {
-  @apply bg-dark font-poppins font-normal text-dark w-full;
-  scroll-behavior: smooth;
+	@apply bg-dark font-poppins font-normal text-dark w-full;
+	scroll-behavior: smooth;
 }
 
 html.sr .reveal-hidden {
-  visibility: hidden;
+	visibility: hidden;
 }
 
 @-moz-document url-prefix() {
-  /* Disable scrollbar Firefox */
-  html {
-    scrollbar-width: none;
-  }
+	/* Disable scrollbar Firefox */
+	html {
+		scrollbar-width: none;
+	}
 }
 
 body {
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none; /* IE 11 */
-  scrollbar-width: none; /* Firefox 64 */
+	overflow: -moz-scrollbars-none;
+	-ms-overflow-style: none; /* IE 11 */
+	scrollbar-width: none; /* Firefox 64 */
 }
 
 body::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 .glide__bullet {
-  @apply rounded-none;
+	@apply rounded-none;
 
-  &.glide__bullet--active {
-    @apply bg-primary;
-  }
+	&.glide__bullet--active {
+		@apply bg-primary dark:bg-primary;
+	}
 
-  & + & {
-    @apply ml-1;
-  }
+	& + & {
+		@apply ml-1;
+	}
 }
 
 .card-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-4 gap-x-4 gap-y-8;
-//grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+	@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-4 gap-x-4 gap-y-8;
+	//grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 
 .container {
-  @apply px-8 mx-auto;
+	@apply px-8 mx-auto;
 }
 
 a.link-dark,
 a.link {
-  @apply underline break-words transition-colors duration-200 ease-in;
+	@apply underline break-words transition-colors duration-200 ease-in;
 }
 
 a.link-dark {
-  @apply hover:text-dark;
+	@apply hover:text-dark;
 }
 
 a.link {
-  @apply hover:text-primary;
+	@apply hover:text-primary;
 }
 
 .image-open-modal {
-  @apply cursor-pointer transition-all duration-200 ease-in;
+	@apply cursor-pointer transition-all duration-200 ease-in;
 
-  &:hover {
-    @apply opacity-75;
-  }
+	&:hover {
+		@apply opacity-75;
+	}
 }
 
 .grid-suggestions {
-  grid-template-areas: 'sug1' 'sug2' 'ad';
+	grid-template-areas: 'sug1' 'sug2' 'ad';
 
-  & > div:nth-child(1) {
-    grid-area: sug1;
-  }
+	& > div:nth-child(1) {
+		grid-area: sug1;
+	}
 
-  & > div:nth-child(2) {
-    grid-area: ad;
-  }
+	& > div:nth-child(2) {
+		grid-area: ad;
+	}
 
-  & > div:nth-child(3) {
-    grid-area: sug2;
-  }
+	& > div:nth-child(3) {
+		grid-area: sug2;
+	}
 }
 
 @media (min-width: 600px) {
-  .grid-suggestions {
-    grid-template-areas: 'sug1 sug2' 'ad ad';
-  }
+	.grid-suggestions {
+		grid-template-areas: 'sug1 sug2' 'ad ad';
+	}
 }
 
 @media (min-width: 1028px) {
-  .grid-suggestions {
-    grid-template-areas: 'sug1 ad sug2';
-  }
+	.grid-suggestions {
+		grid-template-areas: 'sug1 ad sug2';
+	}
 }
 
 #nav-collapse {
-  & + label::before {
-    font-family: 'feather';
-    content: '\f105';
-  }
+	& + label::before {
+		font-family: 'feather';
+		content: '\f105';
+	}
 
-  & + label + #navbar {
-    top: -120%;
-  }
+	& + label + #navbar {
+		top: -120%;
+	}
 
-  &:checked + label + #navbar {
-    top: 0;
-  }
+	&:checked + label + #navbar {
+		top: 0;
+	}
 
-  &:checked + label::before {
-    font-family: 'feather';
-    content: '\f104';
-  }
+	&:checked + label::before {
+		font-family: 'feather';
+		content: '\f104';
+	}
 }
 
 i.feather,
 i.devicons {
-  display: inline-block;
-  width: fit-content;
-  height: fit-content;
+	display: inline-block;
+	width: fit-content;
+	height: fit-content;
 }
 
 pre {
-  @apply cursor-pointer;
+	@apply cursor-pointer;
 
-  &:hover code {
-    @apply opacity-75 transition-all duration-200 ease-in;
-  }
+	&:hover code {
+		@apply opacity-75 transition-all duration-200 ease-in;
+	}
 }
 
 /*
@@ -264,17 +264,17 @@ pre.language-sh:after {
 } */
 
 codersrank-activity {
-  --legend-text-color: red;
-  --legend-font-size: 10px;
-  --bg-color-0: var(--color-light);
-  --bg-color-1: #f59e81;
-  --bg-color-2: #f27a51;
-  --bg-color-3: rgba(238, 86, 34, 1);
-  --bg-color-4: #cd4010;
-  --branding-text-color: var(--color-light);
-  --font-family: Poppins, sans-serif;
+	--legend-text-color: red;
+	--legend-font-size: 10px;
+	--bg-color-0: var(--color-light);
+	--bg-color-1: #f59e81;
+	--bg-color-2: #f27a51;
+	--bg-color-3: rgba(238, 86, 34, 1);
+	--bg-color-4: #cd4010;
+	--branding-text-color: var(--color-light);
+	--font-family: Poppins, sans-serif;
 
-  .codersrank-activity-branding {
-    display: none !important;
-  }
+	.codersrank-activity-branding {
+		display: none !important;
+	}
 }

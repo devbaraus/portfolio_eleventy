@@ -1,5 +1,12 @@
-const { writeDataStream } = require('../_requests/requests')
-const { makeSuggestions } = require('../_requests/requests')
+let makeSuggestions, changeImageExtension;
+
+if (__dirname.endsWith('_requests')) {
+	makeSuggestions = require('./requests').makeSuggestions
+	changeImageExtension = require('./requests').changeImageExtension
+} else {
+	makeSuggestions = require('../_requests/requests').makeSuggestions
+	changeImageExtension = require('../_requests/requests').changeImageExtension
+}
 const { client, gql } = require('../../graphql')
 
 module.exports = async function () {

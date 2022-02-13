@@ -20,6 +20,8 @@ module.exports = {
 		'external-link',
 		'chevron-left',
 		'chevron-right',
+		'sun',
+		'moon',
 	].map((i) => `./feather/${i}.svg`),
 	fontName: 'feather',
 	classPrefix: 'feather-',
