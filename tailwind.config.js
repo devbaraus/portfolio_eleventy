@@ -6,8 +6,8 @@ module.exports = {
 			padding: '2rem',
 		},
 		colors: {
-			dark: '#31263e',
-			medium: '#44355b',
+			dark: '#212121',
+			medium: '#303030',
 			light: '#f0f0f7',
 			primary: '#ee5622',
 		},
