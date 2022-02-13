@@ -6,9 +6,12 @@ const env = process.env
 
 const URL = env.URL || 'http://localhost:8080'
 
+const author_age = ~~((new Date().getTime() - +new Date('1999-08-10T00:00:00+00:00')) / 31557600000)
+
 module.exports = function () {
 	return {
 		generator: `${eleventyPackage.name} v${eleventyPackage.version}`,
+		author_age,
 		today: new Date(),
 		url: URL,
 		author: 'Bruno de Araújo Alves',
