@@ -48,7 +48,7 @@
 		"json-stringify-safe": "^5.0.1",
 		"remove": "^0.1.5",
 		"scrollreveal": "^4.0.9",
-		"serve": "^11.3.2",
+		"serve": "^13.0.1",
 		"sharp-cli": "^1.15.0",
 		"webfonts-loader": "^7.2.0",
 		"workbox-cli": "^6.1.2"
