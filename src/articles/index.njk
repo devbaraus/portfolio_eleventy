@@ -39,7 +39,7 @@ formatteron: true
     <ul class='list-none flex items-center justify-center text-light w-full' aria-labelledby='navigation'
         role='list'>
       <li aria-hidden='true' class='{{ 'invisible' if pagination.pageNumber == 0 }}'>
-        <a href='{{ pagination.page.previous }}' target='_self'>
+        <a href='{{ pagination.pageNumber - 1  }}' target='_self'>
           <i class='feather feather-chevron-left'></i>
         </a>
       </li>
@@ -53,7 +53,7 @@ formatteron: true
         </li>
       {% endfor -%}
       <li aria-hidden='true' class='{{ 'invisible' if pagination.pageNumber == pagination.hrefs.length - 1 }} ml-2'>
-        <a href='{{ pagination.page.next }}' target='_self'>
+        <a href='{{ pagination.pageNumber + 1 }}' target='_self'>
           <i class='feather feather-chevron-right'></i>
         </a>
       </li>
