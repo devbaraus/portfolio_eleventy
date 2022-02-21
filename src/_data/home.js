@@ -1,6 +1,7 @@
 module.exports = {
   socials: [
     { name: 'GitHub', route: 'https://github.com/devbaraus', icon: 'feather feather-github' },
+    { name: 'Discord', route: 'https://discord.com/users/765572736214761512', icon: 'devicons ds-discord' },
     { name: 'Instagram', route: 'https://instagram.com/devbaraus', icon: 'feather feather-instagram' },
     { name: 'Linkedin', route: 'https://linkedin.com/in/devbaraus', icon: 'feather feather-linkedin' },
     { name: 'Twitter', route: 'https://twitter.com/devbaraus', icon: 'feather feather-twitter' },
