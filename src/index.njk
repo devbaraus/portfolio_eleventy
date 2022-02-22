@@ -13,7 +13,7 @@
       class='flex items-center justify-between gap-y-2 gap-x-3 mt-8 flex-wrap'
     >
       {% for social in home.socials %}
-        <a href='{{ social.route }}' target='{{ "_blank" if social.external else "_self" }}' rel='nofollow noreferrer'
+        <a href='{{ social.route }}' target='_blank' rel='nofollow noreferrer'
            class='bg-dark px-4 py-2 rounded-one hover:rounded-lg text-light mr-2 transition-all duration-200 ease-in cursor-pointer hover:text-primary'>
           <i class='{{ social.icon }} mr-1'></i> {{ social.name }}
         </a>
