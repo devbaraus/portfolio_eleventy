@@ -45,17 +45,21 @@ module.exports = async function () {
 			}
 		`)
 
-		projects = projects.map((i) => {
-			i.tags = i.tags.map((tag) => tag.name)
-			i.carousel = i.carousel.map((j) => changeImageExtension(j))
-			i.links = i.links.map((link) => {
-				if (!!link.tag) {
-					link.tag = link.tag.name
-				}
-				return link
+		projects = projects
+			.map((i) => {
+				i.tags = i.tags.map((tag) => tag.name)
+				i.carousel = i.carousel.map((j) => changeImageExtension(j))
+				i.links = i.links.map((link) => {
+					if (!!link.tag) {
+						link.tag = link.tag.name
+					}
+					return link
+				})
+				return i
 			})
-			return i
-		})
+			.sort((a, b) => {
+				return new Date(b.updatedAt) - new Date(a.updatedAt);
+			})
 
 		projects = projects.map((i) => {
 			i.suggestions = makeSuggestions(projects, i.title)

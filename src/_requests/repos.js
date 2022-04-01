@@ -31,10 +31,16 @@ module.exports = async function () {
 			}
 		`)
 
-		repos = repos.repositories.map((i) => {
-			i.tags = i.tags.map((tag) => tag.name)
-			return i
-		})
+
+
+		repos = repos.repositories
+			.map((i) => {
+				i.tags = i.tags.map((tag) => tag.name)
+				return i
+			})
+			.sort((a, b) => {
+				return new Date(b.updatedAt) - new Date(a.updatedAt);
+			})
 
 		repos = repos.map((i) => {
 			i.suggestions = makeSuggestions(repos, i.title)

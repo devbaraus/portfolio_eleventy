@@ -34,13 +34,17 @@ module.exports = async function () {
 			}
 		`)
 
-		articles = articles.map((i) => {
-			i.cover = changeImageExtension(i.cover)
-			i.tags = i.tags.map((tag) => tag.name)
-			i.reactions = i.public_reactions_count
-			i.time = Math.ceil(i.content.replace('\n', '').split(' ').length / 240)
-			return i
-		})
+		articles = articles
+			.map((i) => {
+				i.cover = changeImageExtension(i.cover)
+				i.tags = i.tags.map((tag) => tag.name)
+				i.reactions = i.public_reactions_count
+				i.time = Math.ceil(i.content.replace('\n', '').split(' ').length / 240)
+				return i
+			})
+			.sort((a, b) => {
+				return new Date(b.updatedAt) - new Date(a.updatedAt);
+			})
 
 		articles = articles.map((i) => {
 			i.suggestions = makeSuggestions(articles, i.title)

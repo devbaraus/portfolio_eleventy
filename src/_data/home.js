@@ -17,13 +17,13 @@ module.exports = {
     },
     {
       label: 'Desenvolvimento Back End',
-      icon: { title: 'NodeJS', class: 'devicons ds-nodejs' },
+      icon: { title: 'Python', class: 'devicons ds-python' },
       description:
         'NodeJS, Express, Django, Yii2, PosgreSQL, MySQL, SQLite, MongoDB e AJAX',
     },
     {
       label: 'Desenvolvimento Front End',
-      icon: { title: 'Docker', class: 'devicons ds-vuejs' },
+      icon: { title: 'ReactJS', class: 'devicons ds-react' },
       description:
         'HTML5, CSS3, JavaScript, VueJS, ReactJS, TailwindCSS, Bootstrap e SASS',
     },
