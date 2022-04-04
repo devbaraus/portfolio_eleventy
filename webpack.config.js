@@ -30,7 +30,14 @@ module.exports = {
 	optimization: {
 		minimize: true,
 		usedExports: true,
-		minimizer: [new CSSMinimizerPlugin(), new TerserPlugin()],
+		minimizer: [new CSSMinimizerPlugin(), new TerserPlugin({
+			terserOptions: {
+				format: {
+					comments: false,
+				},
+			},
+			extractComments: false,
+		})],
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
