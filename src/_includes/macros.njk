@@ -201,8 +201,8 @@
         </div>
       </div>
     {% endif %}
-    <div class='container text-dark dark:text-light pt-2 pb-8'>
-      <div class='md:flex justify-between items-baseline pb-8'>
+    <div class='container text-dark dark:text-light my-8'>
+      <div class='md:flex justify-between items-baseline mb-8'>
         <div class='md:w-8/12'>
           <h1 class='text-3xl md:text-4xl font-bold break-words'>{{ object.title }}</h1>
           <span class='break-words'>
@@ -250,7 +250,7 @@
           {% endif %}
         </div>
       </div>
-      <div class='flex w-full flex-wrap md:flex-nowra'>
+      <div class='flex w-full flex-wrap md:flex-nowrap'>
         <div class='dark:text-light dark:prose-pre:bg-medium md:w-8/12 2xl:w-9/12 prose max-w-none w-full '>
           {{ object.content | markdown | safe }}
         </div>
