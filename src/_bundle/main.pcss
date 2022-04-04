@@ -1,13 +1,10 @@
 @import '../../node_modules/@glidejs/glide/dist/css/glide.core.min.css';
 
 @import 'tailwindcss/base';
-@import './styles/base.pcss';
 
 @import 'tailwindcss/components';
-@import './styles/components.pcss';
 
 @import 'tailwindcss/utilities';
-@import './styles/utilities.pcss';
 
 @import './styles/highlight-palenight.pcss';
 @import './styles/hero.pcss';
@@ -41,6 +38,23 @@ body {
 
 html.sr .reveal-hidden {
 	visibility: hidden;
+}
+
+@-moz-document url-prefix() {
+	/* Disable scrollbar Firefox */
+	html {
+		scrollbar-width: none;
+	}
+}
+
+body {
+	overflow: -moz-scrollbars-none;
+	-ms-overflow-style: none; /* IE 11 */
+	scrollbar-width: none; /* Firefox 64 */
+}
+
+body::-webkit-scrollbar {
+	display: none;
 }
 
 .glide__bullet {
